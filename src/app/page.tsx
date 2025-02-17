@@ -1,8 +1,19 @@
 // app/page.tsx
-import { GraduationCap, Code, Shield, Award } from 'lucide-react';
-import { Github, Mail, Linkedin } from 'lucide-react';
+"use client";
+
+import { content } from "@/data/content";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function Home() {
+  const { language } = useLanguage();
+  const { social, navCards, hero } = content[language];
+  const gradients: { [key: string]: string } = {
+    about: "from-cyan-400 to-blue-500",
+    portfolio: "from-purple-400 to-pink-500",
+    security: "from-pink-500 to-purple-600",
+    certifications: "from-cyan-400 to-purple-500"
+  };
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -13,24 +24,25 @@ export default function Home() {
               <div>
                 <h1 className="text-6xl font-bold leading-tight">
                   <span className="bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 text-transparent bg-clip-text">
-                    안녕하세요,<br />
-                    웹 개발자<br />
-                    유예지 입니다.
+                    {hero.greeting}
+                    <br />
+                    {hero.role}
+                    <br />
+                    {hero.name}
                   </span>
                 </h1>
-                <p className="text-xl text-gray-600 mt-6">
-                  보안을 아는 프론트엔드 개발자로서,<br />
-                  혁신적이고 안전한 웹 솔루션을 만들어냅니다.
-                </p>
+                <p className="text-xl text-gray-600 mt-6">{hero.description}</p>
               </div>
               <div className="flex space-x-4">
-                {socialLinks.map((link) => (
+                {social.map(({ icon: Icon, href, label }) => (
                   <a
-                    key={link.href}
-                    href={link.href}
-                    className="p-3 border border-purple-200 rounded-xl bg-white/50 hover:bg-purple-50 transition-colors"
+                    key={href}
+                    href={href}
+                    aria-label={label}
+                    className="p-3 border border-purple-200 rounded-xl bg-white/50
+                             hover:bg-purple-50 transition-colors"
                   >
-                    <link.icon className="w-6 h-6 text-purple-600" />
+                    <Icon className="w-6 h-6 text-purple-600" />
                   </a>
                 ))}
               </div>
@@ -38,7 +50,11 @@ export default function Home() {
             <div className="flex-1 relative">
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-purple-600/20 rounded-full blur-3xl" />
               <div className="relative border-2 border-purple-200/50 rounded-full overflow-hidden">
-                <img src="/profile.jpg" alt="Yeji Yu" className="w-full rounded-full" />
+                <img
+                  src="/profile2.png"
+                  alt="Yeji Yu"
+                  className="w-full rounded-full"
+                />
               </div>
             </div>
           </div>
@@ -49,63 +65,27 @@ export default function Home() {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {navCards.map((card) => (
-              <a
-                key={card.title}
-                href={card.href}
-                className="p-6 rounded-xl border border-purple-200/50 bg-white/50
-                         hover:bg-purple-50/50 transition-all duration-300
-                         group"
-              >
-                <div className={`bg-gradient-to-r ${card.gradient} w-12 h-12 
-                              rounded-lg flex items-center justify-center mb-4
-                              group-hover:scale-110 transition-transform`}>
-                  <card.icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{card.title}</h3>
-                <p className="text-gray-600">{card.description}</p>
-              </a>
-            ))}
+          {navCards.map(({ title, description, icon: Icon, href }) => (
+            <a
+  
+  key={title}
+  href={href}
+  className="p-6 rounded-xl border border-purple-200/50 bg-white/50
+           hover:bg-purple-50/50 transition-all duration-300 group"
+>
+<div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4
+                 group-hover:scale-110 transition-transform bg-gradient-to-r
+                 ${gradients[href.replace('/', '') as keyof typeof gradients]}`}>
+    <Icon className="w-6 h-6 text-white" />
+  </div>
+  <h3 className="text-xl mb-2 bg-gradient-to-r from-gray-600 via-purple-900 to-gray-900 
+                 text-transparent bg-clip-text font-bold">{title}</h3>
+  <p className="text-gray-700 font-medium">{description}</p>
+</a>
+))}
           </div>
         </div>
       </section>
     </main>
   );
 }
-
-const socialLinks = [
-  { icon: Github, href: 'https://github.com/yourusername' },
-  { icon: Linkedin, href: 'https://linkedin.com/in/yourusername' },
-  { icon: Mail, href: 'mailto:contact@example.com' }
-];
-
-const navCards = [
-  {
-    title: '학력 및 경력',
-    description: '성신여자대학교 융합보안공학과에서의 여정',
-    icon: GraduationCap,
-    href: '/about',
-    gradient: 'from-cyan-400 to-blue-500'
-  },
-  {
-    title: '프로젝트',
-    description: '웹 개발 프로젝트 포트폴리오',
-    icon: Code,
-    href: '/portfolio',
-    gradient: 'from-purple-400 to-pink-500'
-  },
-  {
-    title: '보안 교육',
-    description: '20주 커리큘럼 교육 및 CTF 활동',
-    icon: Shield,
-    href: '/security',
-    gradient: 'from-pink-500 to-purple-600'
-  },
-  {
-    title: '자격증',
-    description: '전문성을 입증하는 자격증들',
-    icon: Award,
-    href: '/certifications',
-    gradient: 'from-cyan-400 to-purple-500'
-  }
-];
