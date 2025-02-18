@@ -16,7 +16,7 @@ interface CertificateProps {
 export const CertificateCard = ({ certificate }: CertificateProps) => {
   return (
     <div className="relative group">
-      <Card className="relative border-2 border-purple-300/50 bg-gradient-to-b from-gray-50 to-white/80 
+      <Card className="relative border-2 min-h-[404px] border-purple-300/50 bg-gradient-to-b from-gray-50 to-white/80 
                      backdrop-blur-sm overflow-hidden shadow-[0_0_15px_rgba(147,51,234,0.1)]">
         {/* Glowing corners */}
         <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-purple-400" />

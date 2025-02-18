@@ -57,7 +57,7 @@ import {
         },
         {
           title: "자격증 & 수상",
-          description: `✅ Azure Security 인증 보유\n✅ 금융보안논문전 논문 발표\n✅ 창의의융합보안소프트웨어 경진대회 대상 수상`,
+          description: `✅ Azure Security 인증 보유\n✅ ACK 2024 학부논문 수상\n✅ 창의융합보안소프트웨어 경진대회 대상 수상`,
           icon: Award,
           href: "/certifications",
           gradient: "from-cyan-400 to-purple-500",
@@ -66,7 +66,7 @@ import {
     },
     en: {
       hero: {
-        greeting: "Hello,",
+        greeting: "I'm",
         role: "Fusion Security Engineer Bridging Dev & Security",
         name: "Yeji Yu",
         description: `A developer integrating security into web applications.\nResearching secure and user-friendly solutions.`,
