@@ -77,10 +77,12 @@ def check_url(self, url):
           mainTech: ["React", "TypeScript", "Next.js", "TailwindCSS"],
           thumbnail: "/projects/evwa.png",
           achievements: [
-            "얼굴 측면 및 번호판 감지 모델 개발",
-            "얼굴 및 번호판 감지 정확도 95% 달성",
-            "자체 PDF 암호화 및 리더 기능 구현",
-          ],
+  "얼굴 및 차량 번호판 자동 탐지 모델 개발",
+  "얼굴 및 번호판 감지 정확도 95% 달성",
+  "자체 PDF 암호화 및 보안 열람 기능 구현",
+  "비식별 처리된 데이터의 중앙 집중식 관리 시스템 구축",
+]
+,
           teamSize: "4명",
           duration: "6개월",
           liveDemo: "https://evwa.example.com",
@@ -94,12 +96,27 @@ def check_url(self, url):
               thumbnail: "/projects/evwa-doc-tumbnail.png", // 실제 썸네일 이미지가 있다면 그 경로를
               lastUpdated: "2024-02-18", // 문서가 마지막으로 수정된 날짜
             }],
-          coreCode: `// 비정형 데이터 비식별화 로직...`,
+          coreCode: `for *xyxy, conf, cls in results.xyxy[0].cpu().numpy():
+                x1, y1, x2, y2 = map(int, xyxy)
+                class_id = int(cls)
+                if class_id == 0 and 'face' in masking_targets:  # 얼굴 클래스
+                    faces_detected = True
+                    roi = img[y1:y2, x1:x2]
+                    masked_roi = apply_masking(roi, masking_method, masking_intensity)
+                    img[y1:y2, x1:x2] = np.where(mask[y1:y2, x1:x2, np.newaxis] == 1, masked_roi, roi)
+                elif class_id == 1 and 'licensePlate' in masking_targets:  # 번호판 클래스
+                    roi = img[y1:y2, x1:x2]
+                    masked_roi = apply_masking(roi, masking_method, masking_intensity)
+                    img[y1:y2, x1:x2] = np.where(mask[y1:y2, x1:x2, np.newaxis] == 1, masked_roi, roi)`,
           features: [
-            "비정형 데이터 자동 탐지",
-            "실시간 비식별화 처리",
-            "정책 기반 마스킹",
-          ],
+  "얼굴 및 차량 번호판 자동 탐지",
+  "다양한 마스킹 옵션(완전 마스킹, 픽셀화, 블러링)",
+  "PDF 암호화 및 보안 열람 기능",
+  "비식별 처리된 데이터의 중앙 집중식 저장 및 관리",
+  "메타데이터 추가 및 검색 기능",
+  "처리된 이미지 S3 자동 업로드 및 URL 반환",
+  "마스킹 강도 조절 가능",
+  "비밀키 기반 보안 강화 (파일 만료 및 자동 파괴 기능)"],
           gallery: ["/projects/evwa-1.gif", "/projects/evwa-2.gif", "/projects/evwa-3.gif", "/projects/evwa-4.gif"],
         },
         {
