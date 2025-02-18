@@ -26,7 +26,9 @@ export default function AboutPage() {
 
       <div className="container mx-auto px-6 space-y-16">
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Education</h2>
+          <h2 className="text-2xl font-bold text-gray-700 mb-8">{
+            language === 'ko' ? '학력' : 'Education'
+            }</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {about.education.map((edu) => (
               <EducationCard key={edu.school} education={edu} />
@@ -35,7 +37,9 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Experience</h2>
+          <h2 className="text-2xl font-bold text-gray-700 mb-8">
+            {language === 'ko' ? '경력' : 'Experience'}
+          </h2>
           <Timeline>
             {about.experience.map((exp) => (
               <ExperienceCard key={exp.company} experience={exp} />
@@ -44,7 +48,9 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Club Activities</h2>
+          <h2 className="text-2xl font-bold text-gray-700 mb-8">{
+            language === 'ko' ? '동아리 활동' : 'Club Activities'
+            }</h2>
           <ClubActivities clubs={about.clubs} />
         </section>
       </div>

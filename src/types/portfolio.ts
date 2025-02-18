@@ -22,3 +22,9 @@ export interface Project {
     features: string[];
     gallery: string[];
   }
+  
+  export interface Portfolio {
+    title: string;
+    description: string;
+    projects: Project[];
+  }

@@ -16,7 +16,7 @@ export const ExperienceCard = ({ experience }: ExperienceProps) => {
     return (
       <div className="relative pl-16">
         {/* Timeline dot */}
-        <div className="absolute left-6 -translate-x-1/2 top-6 w-4 h-4 rounded-full border-2 
+        <div className="absolute left-8 -translate-x-1/2 top-6 w-4 h-4 rounded-full border-2 
                       border-purple-400 bg-white" />
   
         <div className="relative group">

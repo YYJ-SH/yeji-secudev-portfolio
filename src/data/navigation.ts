@@ -3,7 +3,7 @@ import { User, Code, Shield, Award } from 'lucide-react';
 
 export const navigation = {
   ko: {
-    logo: 'YEJI.DEV',
+    logo: '보안&개발 예지',
     menu: [
       { href: '/about', label: '소개', icon: User },
       { href: '/portfolio', label: '포트폴리오', icon: Code },
@@ -12,7 +12,7 @@ export const navigation = {
     ]
   },
   en: {
-    logo: 'YEJI.DEV',
+    logo: 'YEJI.SEC&DEV',
     menu: [
       { href: '/about', label: 'About', icon: User },
       { href: '/portfolio', label: 'Portfolio', icon: Code },

@@ -51,7 +51,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-purple-600/20 rounded-full blur-3xl" />
               <div className="relative border-2 border-purple-200/50 rounded-full overflow-hidden">
                 <img
-                  src="/profile2.png"
+                  src="/burgergif2.gif"
                   alt="Yeji Yu"
                   className="w-full rounded-full"
                 />

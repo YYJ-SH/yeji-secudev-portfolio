@@ -5,7 +5,7 @@ import { Calendar, ExternalLink, BookOpen, ArrowUpRight } from 'lucide-react';
 
 interface Article {
   title: string;
-  platform: 'medium' | 'tistory' | 'github';
+  platform: string;
   date: string;
   tags: string[];
   url: string;

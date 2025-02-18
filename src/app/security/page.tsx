@@ -8,6 +8,7 @@ import { WriteupCard } from '@/components/security/WriteUpCard';
 import { BlogSection } from '@/components/security/BlogSection';
 import { Card } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
+import RetroProjectCard from '@/components/portfolio/RetroProjectCard';
 
 export default function SecurityPage() {
   const { language } = useLanguage();
@@ -58,31 +59,21 @@ export default function SecurityPage() {
       <section className="container mx-auto px-6 mb-16">
         <BlogSection title="Security Articles" articles={security.articles} />
       </section>
-
-      {/* Teaching Materials */}
-      <section className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 
-                       text-transparent bg-clip-text mb-8">
-          {security.teaching.title}
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {security.teaching.documentation.map((doc) => (
-            <Card key={doc.title} className="p-6 border-2 border-purple-300/50">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{doc.title}</h3>
-              <p className="text-gray-600 mb-4">{doc.description}</p>
-              <a 
-                href={doc.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700"
-              >
-                View Materials
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </Card>
-          ))}
-        </div>
-      </section>
+{/* Teaching Materials Section */}
+<section className="container mx-auto px-6">
+  <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 
+                 text-transparent bg-clip-text mb-8">
+    Security Education
+  </h2>
+  <div className="space-y-16">
+    {security.teaching.projects.map((project) => (
+      <RetroProjectCard 
+        key={project.id} 
+        project={project} 
+      />
+    ))}
+  </div>
+</section>
     </main>
   );
 }
