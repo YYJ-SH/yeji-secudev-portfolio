@@ -37,6 +37,8 @@ interface Project {
   coreCode: string;
   features: string[];
   gallery: string[];
+    liveDemoLink: string;
+    githubLink: string;
 }
 
 interface RetroProjectCardProps {
@@ -314,7 +316,7 @@ const RetroProjectCard = ({ project }: RetroProjectCardProps) => {
             {/* Footer Links */}
             <div className="flex justify-end gap-4 mt-6">
               <a
-                href="#"
+                href= {project.githubLink}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg
                          text-purple-600 hover:text-purple-700
                          bg-purple-50 hover:bg-purple-100
@@ -324,7 +326,7 @@ const RetroProjectCard = ({ project }: RetroProjectCardProps) => {
                 View Code
               </a>
               <a
-                href="#"
+                href={project.liveDemoLink}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg
                          text-cyan-600 hover:text-cyan-700
                          bg-cyan-50 hover:bg-cyan-100

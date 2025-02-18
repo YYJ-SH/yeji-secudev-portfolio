@@ -6,37 +6,73 @@ export const portfolio = {
       projects: [
         {
           id: "phishing-guard",
-          title: "피싱지킴: 피싱 사이트 탐지 및 신고 플랫폼",
+          title: "피싱지킴이: 시니어를 위한 ALL IN ONE 피싱 탐지 및 교육 플랫폼",
           period: "2024.06 - 진행 중",
-          description: "AI 기반 피싱 탐지 시스템을 개발하여 실시간으로 악성 URL을 분석하고 신고할 수 있도록 했습니다.",
-          role: "프론트엔드 개발자",
+          description: "시니어들을 위한 이미지 & 데이터베이스 기반 피싱 사이트 탐지 및 교육 커뮤니티 입니다.",
+          role: "프론트엔드 & 백 개발자 & 팀 리드",
           contribution: 70,
-          mainTech: ["React", "Next.js", "Python", "FastAPI", "MongoDB"],
+          mainTech: ["React", "Next.js", "Python", "Django", "MySql", "AWS", "Docker"],
           thumbnail: "/projects/phishing-guard.png",
           achievements: [
-            "피싱 탐지 정확도 95% 달성",
-            "AI 기반 악성 URL 자동 분석",
-            "신고된 사이트 데이터베이스 구축 (1000건 이상 저장됨)",
+            "Docker 컨테이너 기반의 서버 배포",
+            "은행데이터 비교 기반 피싱 탐지 모델 구현",
+            "시니어 프렌들리 UI/UX 디자인",
+            "금융감독원 & KCI 논문 기반 체크리스트 적용",
           ],
           teamSize: "4명",
           duration: "진행 중",
           liveDemo: "https://phishing-guard.example.com",
-          githubLink: "https://github.com/YYJ-SH/phishing-guard",
+          githubLink: "https://github.com/YYJ-SH/phishingguardFront",
           documentation: [],
-          coreCode: `// 피싱 탐지 AI 모델 핵심 로직...`,
+          coreCode: `# DatabaseChecker 클래스의 check_url 메서드 수정
+def check_url(self, url):
+    try:
+        normalized_url = normalize_url(url)
+        
+        # 모든 금융기관 URL 가져오기
+        self.cursor.execute("""
+            SELECT CONVERT(name USING utf8mb4) as name, url 
+            FROM financial_institutions
+        """)
+        results = self.cursor.fetchall()
+        
+        # Dictionary 구성
+        financial_urls = {}
+        for row in results:
+            if row['url'] and row['name']:  # null 체크
+                financial_urls[row['url']] = {
+                    'name': row['name'].encode('utf-8').decode('utf-8')
+                }
+        
+        # 디버깅
+        print("URL:", url)
+        print("Normalized URL:", normalized_url)
+        print("Financial URLs:", financial_urls)
+        
+        # 유사도 검사 전에 데이터 형식 확인
+        if not financial_urls:
+            print("Warning: No financial URLs found in database")
+            return None
+        
+        # 유사도 검사
+        similarity_check = check_url_similarity(normalized_url, financial_urls)
+        print("Similarity Check Result:", similarity_check)
+        `,
           features: [
-            "사용자 신고 기능",
-            "AI 기반 피싱 사이트 분석",
-            "데이터베이스에 자동 저장",
+            "시니어를 위한 음성 안내 및 폰트 사이즈 조절 기능",
+            "실사례를 기반으로 만들어진 피싱 퀴즈&교육 페이지",
+            "피싱 신고 및 피싱 분석 & 투표 커뮤니티",
+            "이미지 기반 피싱 분석(URL, 전화번호, 계좌번호)",
+            "AI 기반 피싱 사이트 분석 (체크리스트 기반)",
           ],
           gallery: ["/projects/phishing-1.png", "/projects/phishing-2.png"],
         },
         {
           id: "deidentification-platform",
-          title: "이브와: 비정형 데이터 비식별화 플랫폼",
+          title: "AnonyData: 비정형 개인정보 데이터 비식별화 플랫폼",
           period: "2024.03 - 2024.08",
           description: "YOLO 기반 AI 모델을 활용하여 영상, 이미지, PDF 등 다양한 비정형 데이터를 자동 탐지하고 비식별화하는 플랫폼입니다.",
-          role: "프론트엔드 개발 리드",
+          role: "프론트엔드 & 백엔드 개발, AI학습, PM",
           contribution: 80,
           mainTech: ["React", "TypeScript", "Next.js", "TailwindCSS"],
           thumbnail: "/projects/evwa.png",
@@ -45,7 +81,7 @@ export const portfolio = {
             "실시간 비식별화 처리 구현",
             "보안 취약점 Zero 달성",
           ],
-          teamSize: "5명",
+          teamSize: "4명",
           duration: "6개월",
           liveDemo: "https://evwa.example.com",
           githubLink: "https://github.com/YYJ-SH/evwa",
@@ -154,4 +190,159 @@ export const portfolio = {
       ],
     },
   },
+  en: {
+    portfolio: {
+    title: "Portfolio",
+    description: "Introducing innovative web solutions and security projects.",
+    projects: [
+    {
+    id: "phishing-guard",
+    title: "Phishing Guard: Phishing Site Detection and Reporting Platform",
+    period: "2024.06 - In progress",
+    description: "We developed an AI-based phishing detection system to analyze and report malicious URLs in real time.",
+    role: "Front-end developer",
+    contribution: 70,
+    mainTech: ["React", "Next.js", "Python", "FastAPI", "MongoDB"],
+    thumbnail: "/projects/phishing-guard.png",
+    achievements: [
+    "Achieved 95% phishing detection accuracy",
+    "Automatic analysis of AI-based malicious URLs",
+    "Building a database of reported sites (more than 1,000 cases stored)",
+    ],
+    teamSize: "4 people",
+    duration: "In progress",
+    liveDemo: "https://phishing-guard.example.com",
+    githubLink: "https://github.com/YYJ-SH/phishing-guard",
+    documentation: [],
+    coreCode: `// Core logic of phishing detection AI model...`,
+    features: [
+    "User report function",
+    "AI-based phishing site analysis",
+    "Automatically save to database",
+    ],
+    gallery: ["/projects/phishing-1.png", "/projects/phishing-2.png"],
+    },
+    {
+    id: "deidentification-platform",
+    title: "Evewa: Unstructured data deidentification platform",
+    period: "2024.03 - 2024.08",
+    description: "Automatically detect and deidentify various unstructured data such as videos, images, and PDFs using YOLO-based AI models. Platform.",
+    role: "Front-end development lead",
+    contribution: 80,
+    mainTech: ["React", "TypeScript", "Next.js", "TailwindCSS"],
+    thumbnail: "/projects/evwa.png",
+    achievements: [
+    "40% improvement in performance of large-scale data processing",
+    "Implementation of real-time de-identification processing",
+    "Achievement of zero security vulnerabilities",
+    ],
+    teamSize: "5 people",
+    duration: "6 months",
+    liveDemo: "https://evwa.example.com",
+    githubLink: "https://github.com/YYJ-SH/evwa",
+    documentation: [],
+    coreCode: `// Unstructured data de-identification logic...`,
+    features: [
+    "Automatic detection of unstructured data",
+    "Real-time de-identification processing",
+    "Policy-based masking",
+    ],
+    gallery: ["/projects/evwa-1.png", "/projects/evwa-2.png"],
+    },
+    {
+    id: "smart-maritime-logistics",
+    title: "Smart Maritime Logistics: AI-based Asset Management Platform",
+    period: "2023.12 - 2024.05",
+    description: "We built a safe asset management system by analyzing maritime logistics data based on AI and security checklists.",
+    role: "Backend and Security Manager",
+    contribution: 60,
+    mainTech: ["Django", "React", "MongoDB", "Docker", "AWS"],
+    thumbnail: "/projects/maritime.png",
+    achievements: [
+    "Implementation of Asset Management Based on Security Checklist",
+    "Cloud-based Data Storage and Analysis",
+    "Building a Security Vulnerability Response System",
+    ],
+    teamSize: "6 people",
+    duration: "5 months",
+    liveDemo: "https://smart-maritime.example.com",
+    githubLink: "https://github.com/YYJ-SH/smart-maritime",
+    documentation: [],
+    coreCode: `// Marine logistics data analysis logic...`,
+    features: [
+    "AI-based asset management",
+    "Security inspection checklist application",
+    "Real-time data visualization",
+    ],
+    gallery: ["/projects/maritime-1.png", "/projects/maritime-2.png"],
+    },
+    {
+    id: "dopark-numberplate",
+    title: "Vehicle license plate forgery detection system",
+    period: "2023.02",
+    description: "Development of vehicle license plate forgery detection and parking management system. PyTorch-based fake license plate detection feature included.",
+    role: "Front-end developer",
+    contribution: 50,
+    mainTech: ["JavaScript", "React", "Java", "Spring Boot"],
+    thumbnail: "/projects/dopark.png",
+    achievements: [
+    "Achieved 100% vehicle license plate recognition rate",
+    "Detecting forged license plates using SuperGlue module",
+    ],
+    teamSize: "5 people",
+    duration: "4 months",
+    liveDemo: "",
+    githubLink: "",
+    documentation: [],
+    coreCode: `// Vehicle license plate recognition AI model logic...`,
+    features: ["AI-based vehicle license plate recognition", "Forgery detection feature"],
+    gallery: [],
+    },
+    {
+    id: "ai-aquaponics",
+    title: "Artificial Intelligence Aquaponics Tank", period: "2023.08",
+    description: "Developed a remote feeding control and real-time fish tank condition monitoring system using Arduino and YOLOv5.",
+    role: "Full-stack developer",
+    contribution: 80,
+    mainTech: ["Python", "JavaScript", "React NEXT", "Django"],
+    thumbnail: "/projects/aquaponics.png",
+    achievements: [
+    "Implementation of real-time water quality monitoring and remote control",
+    "Development of AI-based plant disease diagnosis model",
+    ],
+    teamSize: "3 people",
+    duration: "6 months",
+    liveDemo: "",
+    githubLink: "",
+    documentation: [],
+    coreCode: `// Aquaponics remote control logic...`,
+    features: ["IoT-based fish tank monitoring", "AI plant disease diagnosis"],
+    gallery: [],
+    },
+    {
+    id: "yangjae-parking",
+    title: "Yangjae AI Hub parking management system UI reorganization",
+    period: "2023.02",
+    description: "We completely reorganized the UX/UI of the Yangjae AI Hub parking management system to improve usability.",
+    role: "Front-end developer",
+    contribution: 100,
+    mainTech: ["Next.js", "React"],
+    thumbnail: "/projects/yangjae.png",
+    achievements: [
+    "Parking management UI/UX improvement",
+    "Responsive design application",
+  ],
+  teamSize: "2 people",
+  duration: "3 months",
+  liveDemo: "",
+  githubLink: "",
+  documentation: [],
+  coreCode: ``,
+  features: ["UX/UI improvements", "Responsive design applied"],
+  gallery: [],
+  },
+  ],
+  },
+  },
+
 };
