@@ -15,7 +15,7 @@ export const portfolio = {
           thumbnail: "/projects/phishing-guard.png",
           achievements: [
             "Docker 컨테이너 기반의 서버 배포",
-            "은행데이터 비교 기반 피싱 탐지 모델 구현",
+            "최초 은행데이터 비교 기반 피싱 탐지 모델 구현",
             "시니어 프렌들리 UI/UX 디자인",
             "금융감독원 & KCI 논문 기반 체크리스트 적용",
           ],
@@ -77,22 +77,30 @@ def check_url(self, url):
           mainTech: ["React", "TypeScript", "Next.js", "TailwindCSS"],
           thumbnail: "/projects/evwa.png",
           achievements: [
-            "대용량 데이터 처리 성능 40% 개선",
-            "실시간 비식별화 처리 구현",
-            "보안 취약점 Zero 달성",
+            "얼굴 측면 및 번호판 감지 모델 개발",
+            "얼굴 및 번호판 감지 정확도 95% 달성",
+            "자체 PDF 암호화 및 리더 기능 구현",
           ],
           teamSize: "4명",
           duration: "6개월",
           liveDemo: "https://evwa.example.com",
           githubLink: "https://github.com/YYJ-SH/evwa",
-          documentation: [],
+          documentation: [
+            {
+              type: "PDF",
+              title: "AnonyData 비정형 개인정보 데이터 비식별화 플랫폼 문서",
+              description: "비정형 데이터를 탐지하고 비식별화하는 AnonyData 플랫폼의 상세 기술 문서입니다.",
+              link: "/projects/evwa.pdf",
+              thumbnail: "/projects/evwa-doc-tumbnail.png", // 실제 썸네일 이미지가 있다면 그 경로를
+              lastUpdated: "2024-02-18", // 문서가 마지막으로 수정된 날짜
+            }],
           coreCode: `// 비정형 데이터 비식별화 로직...`,
           features: [
             "비정형 데이터 자동 탐지",
             "실시간 비식별화 처리",
             "정책 기반 마스킹",
           ],
-          gallery: ["/projects/evwa-1.png", "/projects/evwa-2.png"],
+          gallery: ["/projects/evwa-1.gif", "/projects/evwa-2.gif", "/projects/evwa-3.gif", "/projects/evwa-4.gif"],
         },
         {
           id: "smart-maritime-logistics",

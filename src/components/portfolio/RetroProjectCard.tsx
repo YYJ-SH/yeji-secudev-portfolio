@@ -231,7 +231,7 @@ const RetroProjectCard = ({ project }: RetroProjectCardProps) => {
               </TabsContent>
 
               <TabsContent value="docs" className="mt-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
                   {project.documentation.map((doc, index) => (
                     <div
                       key={index}
