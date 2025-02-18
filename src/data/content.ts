@@ -11,6 +11,7 @@ export const content = {
     ...security.ko,
     ...certifications.ko,
     ...social.ko,
+    navCards: social.ko.navCards ?? [],
   },
   en: {
     ...about.en,
@@ -18,5 +19,6 @@ export const content = {
     ...security.en,
     ...certifications.en,
     ...social.en,
+    navCards: social.en.navCards ?? [],
   },
 };
