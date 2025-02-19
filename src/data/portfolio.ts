@@ -95,7 +95,16 @@ def check_url(self, url):
               link: "/projects/evwa.pdf",
               thumbnail: "/projects/evwa-doc-tumbnail.png", // 실제 썸네일 이미지가 있다면 그 경로를
               lastUpdated: "2024-02-18", // 문서가 마지막으로 수정된 날짜
-            }],
+            },
+            {
+              type: "PDF",
+              title: "AnonyData 비정형 개인정보 데이터 비식별화 개발발 문서",
+              description: "비정형 데이터를 탐지하고 비식별화하는 AnonyData 플랫폼의 상세 기술 문서입니다.",
+              link: "/projects/eva.pdf",
+              thumbnail: "/projects/eva-doc-tumbnail.png", // 실제 썸네일 이미지가 있다면 그 경로를
+              lastUpdated: "2024-02-18", // 문서가 마지막으로 수정된 날짜
+            }
+          ],
           coreCode: `for *xyxy, conf, cls in results.xyxy[0].cpu().numpy():
                 x1, y1, x2, y2 = map(int, xyxy)
                 class_id = int(cls)
@@ -137,7 +146,25 @@ def check_url(self, url):
           duration: "5개월",
           liveDemo: "https://smart-maritime.example.com",
           githubLink: "https://github.com/YYJ-SH/smart-maritime",
-          documentation: [],
+          documentation: [
+            {
+              type: "PDF",
+              title: "스마트해상물류 플랫폼 기술 문서",
+              description: "해양물류 데이터를 AI와 보안 체크리스트를 기반으로 분석하여 안전한 자산 관리 시스템을 구축했습니다.",
+              link: "/projects/suhemul.pdf",
+              thumbnail: "/projects/hp-doc-tumbnail.png", // 실제 썸네일 이미지가 있다면 그 경로를
+              lastUpdated: "2024-02-18", // 문서가 마지막으로 수정된 날짜
+            },
+            {
+              type: "PDF",
+              title: "스마트해상물류 플랫폼 발표 문서",
+              description: "해양물류 데이터를 AI와 보안 체크리스트를 기반으로 분석하여 안전한 자산 관리 시스템을 구축했습니다.",
+              link: "/projects/hp.pdf",
+              thumbnail: "/projects/shm-doc-tumbnail.png", // 실제 썸네일 이미지가 있다면 그 경로를
+              lastUpdated: "2024-02-18", // 문서가 마지막으로 수정된 날짜
+            }
+          
+          ],
           coreCode: `class VulnerabilityDashboardView(APIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
@@ -244,7 +271,7 @@ def check_url(self, url):
           documentation: [],
           coreCode: `// 비공개 코드입니다`,
           features: ["IoT 기반 어항 모니터링", "AI 식물 질병 진단"],
-          gallery: [],
+          gallery: ["/projects/aqua-1.gif", "/projects/aqua-2.gif", "/projects/aqua-2.png","/projects/aqua-1.png"],
         },
         {
           id: "yangjae-parking",
