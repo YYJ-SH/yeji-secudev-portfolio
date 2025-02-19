@@ -127,44 +127,100 @@ def check_url(self, url):
           role: "백엔드 및 보안 담당",
           contribution: 60,
           mainTech: ["Django", "React", "MongoDB", "Docker", "AWS"],
-          thumbnail: "/projects/maritime.png",
+          thumbnail: "/projects/suhemul.png",
           achievements: [
             "보안 체크리스트 기반 자산 관리 구현",
             "클라우드 기반 데이터 저장 및 분석",
             "보안 취약점 대응 시스템 구축",
           ],
-          teamSize: "6명",
+          teamSize: "4명",
           duration: "5개월",
           liveDemo: "https://smart-maritime.example.com",
           githubLink: "https://github.com/YYJ-SH/smart-maritime",
           documentation: [],
-          coreCode: `// 해양물류 데이터 분석 로직...`,
+          coreCode: `class VulnerabilityDashboardView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        try:
+            db = settings.MONGO_CLIENT['seacurity']
+            assets_collection = db['assets']
+
+            # 총 취약점 수
+            total_vulnerabilities = assets_collection.aggregate([
+                {"$unwind": "$checklist"},
+                {"$match": {"checklist.answer": False}},
+                {"$unwind": "$checklist.vulnerabilities"},
+                {"$count": "total"}
+            ])
+            total_vulnerabilities = next(total_vulnerabilities, {}).get('total', 0)
+
+            # 자산 유형별 취약점 수
+            vulnerabilities_by_asset_type = list(assets_collection.aggregate([
+                {"$unwind": "$checklist"},
+                {"$match": {"checklist.answer": False}},
+                {"$unwind": "$checklist.vulnerabilities"},
+                {"$group": {"_id": "$type", "count": {"$sum": 1}}},
+                {"$project": {"name": "$_id", "value": "$count", "_id": 0}}
+            ]))
+
+            # 심각도별 취약점 수
+            severity_distribution = list(assets_collection.aggregate([
+                {"$unwind": "$checklist"},
+                {"$match": {"checklist.answer": False}},
+                {"$unwind": "$checklist.vulnerabilities"},
+                {"$group": {
+                    "_id": "$checklist.vulnerabilities.severity",
+                    "count": {"$sum": 1}
+                }},
+                {"$project": {"name": "$_id", "value": "$count", "_id": 0}}
+            ]))
+
+            # 최근 발견된 취약점
+            recent_vulnerabilities = list(assets_collection.aggregate([
+                {"$unwind": "$checklist"},
+                {"$match": {"checklist.answer": False}},
+                {"$unwind": "$checklist.vulnerabilities"},
+                {"$sort": {"updated_at": -1}},
+                {"$limit": 5},
+                {"$project": {
+                    "_id": 1,
+                    "asset_name": "$attributes.name",
+                    "asset_type": "$type",
+                    "vulnerability": "$checklist.vulnerabilities.description",
+                    "severity": "$checklist.vulnerabilities.severity",
+                    "discovered_at": "$updated_at"
+                }}
+            ]))
+`,
           features: [
             "AI 기반 자산 관리",
             "보안 점검 체크리스트 적용",
             "실시간 데이터 시각화",
           ],
-          gallery: ["/projects/maritime-1.png", "/projects/maritime-2.png"],
+          gallery: ["/projects/suhemul-1.png", "/projects/suhemul-2.png", "/projects/suhemul-3.png"],
         },
         {
           id: "dopark-numberplate",
-          title: "차량 번호판 위변조 탐지 시스템",
+          title: "DoPark: LPR 주차관리시스템",
           period: "2023.02",
-          description: "차량 번호판 위변조 탐지 및 주차관리 시스템 개발. PyTorch를 활용한 차량 가짜 번호판 탐지 기능 포함.",
+          description: "인식률 99% 주차관리 시스템 개발. PyTorch를 활용한 차량 가짜 번호판 탐지 기능 포함.",
           role: "프론트엔드 개발자",
           contribution: 50,
           mainTech: ["JavaScript", "React", "Java", "Spring Boot"],
           thumbnail: "/projects/dopark.png",
           achievements: [
-            "차량 번호판 인식률 100% 달성",
+            "차량 번호판 인식률 99% 달성",
             "SuperGlue 모듈 활용하여 위변조 번호판 탐지",
+            "Legacy migration : Jsp to React",
           ],
           teamSize: "5명",
           duration: "4개월",
           liveDemo: "",
           githubLink: "",
           documentation: [],
-          coreCode: `// 차량 번호판 인식 AI 모델 로직...`,
+          coreCode: `//비공개 코드입니다다`,
           features: ["AI 기반 차량 번호판 인식", "위변조 탐지 기능"],
           gallery: [],
         },
@@ -176,17 +232,17 @@ def check_url(self, url):
           role: "풀스택 개발자",
           contribution: 80,
           mainTech: ["Python", "JavaScript", "React NEXT", "Django"],
-          thumbnail: "/projects/aquaponics.png",
+          thumbnail: "/projects/aqua-3.png",
           achievements: [
             "실시간 수질 모니터링 및 원격 제어 구현",
             "AI 기반 식물 질병 진단 모델 개발",
           ],
           teamSize: "3명",
-          duration: "6개월",
+          duration: "2주주",
           liveDemo: "",
           githubLink: "",
           documentation: [],
-          coreCode: `// 아쿠아포닉스 원격 제어 로직...`,
+          coreCode: `// 비공개 코드입니다`,
           features: ["IoT 기반 어항 모니터링", "AI 식물 질병 진단"],
           gallery: [],
         },
@@ -198,7 +254,7 @@ def check_url(self, url):
           role: "프론트엔드 개발자",
           contribution: 100,
           mainTech: ["Next.js", "React"],
-          thumbnail: "/projects/yangjae.png",
+          thumbnail: "/projects/yj-1.png",
           achievements: [
             "주차 관리 UI/UX 개선",
             "반응형 디자인 적용",
@@ -210,7 +266,7 @@ def check_url(self, url):
           documentation: [],
           coreCode: ``,
           features: ["UX/UI 개선", "반응형 디자인 적용"],
-          gallery: [],
+          gallery: ["projects/yj-2.gif", "projects/yj-3.gif"],
         },
       ],
     },
