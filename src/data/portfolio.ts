@@ -121,10 +121,8 @@ def check_url(self, url):
   "얼굴 및 차량 번호판 자동 탐지",
   "다양한 마스킹 옵션(완전 마스킹, 픽셀화, 블러링)",
   "PDF 암호화 및 보안 열람 기능",
-  "비식별 처리된 데이터의 중앙 집중식 저장 및 관리",
-  "메타데이터 추가 및 검색 기능",
-  "처리된 이미지 S3 자동 업로드 및 URL 반환",
-  "마스킹 강도 조절 가능",
+  "비식별 처리된 민감데이터 중앙 집중 관리",
+  "학습용 비식별화 데이터 공유 플랫폼",
   "비밀키 기반 보안 강화 (파일 만료 및 자동 파괴 기능)"],
           gallery: ["/projects/evwa-1.gif", "/projects/evwa-2.gif", "/projects/evwa-3.gif", "/projects/evwa-4.gif"],
         },
@@ -222,9 +220,12 @@ def check_url(self, url):
             ]))
 `,
           features: [
-            "AI 기반 자산 관리",
+            "AI 기반 취약점 점검",
+            "MITER &ATTACK 네비게이션 연동",
             "보안 점검 체크리스트 적용",
-            "실시간 데이터 시각화",
+            "ATTCK TREE 플로우차트 제공",
+            "권한부여 및 로그인 기능",
+            "USER FRIENDLY 대시보드",
           ],
           gallery: ["/projects/suhemul-1.png", "/projects/suhemul-2.png", "/projects/suhemul-3.png"],
         },
@@ -261,8 +262,9 @@ def check_url(self, url):
           mainTech: ["Python", "JavaScript", "React NEXT", "Django"],
           thumbnail: "/projects/aqua-3.png",
           achievements: [
-            "실시간 수질 모니터링 및 원격 제어 구현",
+            "IoT 기반 실시간 수조 모니터링 및 원격 제어 구현",
             "AI 기반 식물 질병 진단 모델 개발",
+            "MQTT 활용한 웹상 제어 솔루션"
           ],
           teamSize: "3명",
           duration: "2주",
@@ -279,7 +281,7 @@ def check_url(self, url):
             },
           ],
           coreCode: `// 비공개 코드입니다`,
-          features: ["IoT 기반 어항 모니터링", "AI 식물 질병 진단"],
+          features: ["IoT 기반 어항 모니터링", "AI 식물 질병 진단", "자동사료급여", "관련상품 스마트스토어", "전문가 매칭"],
           gallery: ["/projects/aqua-1.gif", "/projects/aqua-2.gif", "/projects/aqua-2.png","/projects/aqua-1.png"],
         },
         {
@@ -293,7 +295,8 @@ def check_url(self, url):
           thumbnail: "/projects/yj-1.png",
           achievements: [
             "주차 관리 UI/UX 개선",
-            "반응형 디자인 적용",
+            "모바일 페이지 별도 구축",
+            "컴포넌트 단순화 페이지 제공"
           ],
           teamSize: "2명",
           duration: "3개월",
@@ -301,7 +304,7 @@ def check_url(self, url):
           githubLink: "",
           documentation: [],
           coreCode: ``,
-          features: ["UX/UI 개선", "반응형 디자인 적용"],
+          features: ["UX/UI 개선", "반응형 디자인 적용", "Description을 사용한 요약본 제공", "등록 시스템 개선", "웹앱 제공"],
           gallery: ["projects/yj-2.gif", "projects/yj-3.gif"],
         },
       ],
