@@ -14,23 +14,23 @@ interface Article {
 }
 
 export const BlogArticleCard = ({ article }: { article: Article }) => {
-  const platformIcons = {
+  const platformIcons: { [key in Article['platform']]: typeof BookOpen } = {
     medium: BookOpen,
     tistory: BookOpen,
     github: BookOpen
   };
 
-  const platformColors = {
+  const platformColors: { [key in Article['platform']]: string } = {
     medium: 'from-slate-50 to-gray-50',
     tistory: 'from-orange-50 to-rose-50',
     github: 'from-purple-50 to-cyan-50'
   };
 
-  const PlatformIcon = platformIcons[article.platform];
+  const PlatformIcon = platformIcons[article.platform as keyof typeof platformIcons];
 
   return (
     <div className="relative group">
-      <Card className="relative border-2 border-purple-300/50 bg-gradient-to-b from-gray-50 to-white/80 
+      <Card className="relative min-h-[510px] border-2 border-purple-300/50 bg-gradient-to-b from-gray-50 to-white/80 
                      backdrop-blur-sm overflow-hidden shadow-[0_0_15px_rgba(147,51,234,0.1)]
                      hover:shadow-[0_0_20px_rgba(147,51,234,0.2)] transition-all">
         {/* Thumbnail if exists */}

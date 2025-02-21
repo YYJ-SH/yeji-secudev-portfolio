@@ -21,9 +21,9 @@ export interface SecurityCourse {
       platforms: {
         name: string; // 예: "HackTheBox", "TryHackMe", "Wargame.kr"
         rank?: string;
-        solved: number;
-        totalProblems: number;
-        profileUrl: string;
+        solved?: number;
+        totalProblems?: number;
+        profileUrl?: string;
         achievements?: string[];
       }[];
       writeups: {

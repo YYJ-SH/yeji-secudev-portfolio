@@ -1,4 +1,3 @@
-// app/certifications/page.tsx
 'use client';
 
 import { useLanguage } from '@/contexts/language-context';
@@ -13,6 +12,34 @@ export default function CertificationsPage() {
     certification: certifications.certificates.filter(cert => cert.type === 'certification'),
     license: certifications.certificates.filter(cert => cert.type === 'license'),
     award: certifications.certificates.filter(cert => cert.type === 'award')
+  };
+
+  // 언어에 따른 섹션 제목 설정
+  const getSectionTitle = (type) => {
+    if (language === 'ko') {
+      switch (type) {
+        case 'certification':
+          return '자격증';
+        case 'license':
+          return '교육사항';
+        case 'award':
+          return '수상경력';
+        default:
+          return type;
+      }
+    } else {
+      // 영어 또는 기본 언어
+      switch (type) {
+        case 'certification':
+          return 'Certifications';
+        case 'license':
+          return 'Courses Taken';
+        case 'award':
+          return 'Awards';
+        default:
+          return type.charAt(0).toUpperCase() + type.slice(1) + 's';
+      }
+    }
   };
 
   return (
@@ -31,9 +58,8 @@ export default function CertificationsPage() {
         {Object.entries(certificatesByType).map(([type, certs]) => (
           certs.length > 0 && (
             <section key={type}>
-              <h2 className="text-2xl font-bold text-gray-900 mb-8 capitalize">
-                {type === 'certification' ? 'Certifications' : 
-                 type === 'license' ? 'Licenses' : 'Awards'}
+              <h2 className="text-2xl font-bold text-gray-900 mb-8">
+                {getSectionTitle(type)}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {certs.map((cert) => (
