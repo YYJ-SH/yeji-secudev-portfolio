@@ -248,7 +248,7 @@ def check_url(self, url):
           liveDemo: "",
           githubLink: "",
           documentation: [],
-          coreCode: `//비공개 코드입니다`,
+          coreCode: `비공개 코드입니다`,
           features: ["YOLO5 기반 차량 번호판 인식", "위변조 탐지 기능"],
           gallery: ["/projects/mj-1.png","/projects/mj-2.png","/projects/mj-3.png"],
         },
@@ -269,7 +269,7 @@ def check_url(self, url):
           teamSize: "3명",
           duration: "2주",
           liveDemo: "",
-          githubLink: "",
+          githubLink: "https://github.com/YYJ-SH/aquaponics",
           documentation: [
             {
               type: "PDF",

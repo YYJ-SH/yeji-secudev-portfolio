@@ -209,7 +209,7 @@ const RetroProjectCard = ({ project }: RetroProjectCardProps) => {
                 <div className="relative group rounded-lg overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-b from-purple-100/20 to-cyan-100/20 pointer-events-none" />
                   <pre className="p-4 bg-gray-900 text-gray-100 rounded-lg overflow-x-auto">
-                    <code className="text-sm">{project.coreCode}</code>
+                    <code className="text-sm">{project.coreCode ? project.coreCode : "비공개 코드입니다"}</code>
                   </pre>
                 </div>
               </TabsContent>
@@ -314,18 +314,22 @@ const RetroProjectCard = ({ project }: RetroProjectCardProps) => {
             </Tabs>
 
             {/* Footer Links */}
+            
             <div className="flex justify-end gap-4 mt-6">
-              <a
+            {
+                project.githubLink ? <><a
                 href= {project.githubLink}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg
                          text-purple-600 hover:text-purple-700
                          bg-purple-50 hover:bg-purple-100
                          transition-colors"
               >
-                <Github className="w-5 h-5" />
-                View Code
-              </a>
-              <a
+                <Github className="w-5 h-5" />View Code 
+                
+              </a></> : <></>
+            }
+             {
+                project.liveDemoLink ? <><a
                 href={project.liveDemoLink}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg
                          text-cyan-600 hover:text-cyan-700
@@ -334,7 +338,9 @@ const RetroProjectCard = ({ project }: RetroProjectCardProps) => {
               >
                 <ExternalLink className="w-5 h-5" />
                 Live Demo
-              </a>
+              </a></> : <></>
+            }
+              
             </div>
           </div>
         </Card>
