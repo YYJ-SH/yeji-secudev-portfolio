@@ -37,8 +37,8 @@ interface Project {
   coreCode: string;
   features: string[];
   gallery: string[];
-    liveDemoLink: string;
-    githubLink: string;
+    liveDemoLink?: string;
+    githubLink?: string;
 }
 
 interface RetroProjectCardProps {

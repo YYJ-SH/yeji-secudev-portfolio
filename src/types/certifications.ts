@@ -3,7 +3,7 @@ export interface Certificate {
     issuer: string;
     date: string;
     expiry?: string;
-    type: "certification" | "license" | "award";
+    type: string;
     image?: string;
   }
   

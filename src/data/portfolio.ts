@@ -21,7 +21,7 @@ export const portfolio = {
           ],
           teamSize: "4명",
           duration: "진행 중",
-          liveDemo: "https://phishing-guard.example.com",
+          liveDemo: "phishingguard-front-pro.vercel.app",
           githubLink: "https://github.com/YYJ-SH/phishingguardFront",
           documentation: [],
           coreCode: `# DatabaseChecker 클래스의 check_url 메서드 수정
@@ -128,7 +128,7 @@ def check_url(self, url):
         },
         {
           id: "smart-maritime-logistics",
-          title: "스마트 해양물류: AI 기반 자산 관리 플랫폼",
+          title: "Seacurity: AI 기반 보안 자산 관리 플랫폼",
           period: "2023.12 - 2024.05",
           description: "해양물류 데이터를 AI와 보안 체크리스트를 기반으로 분석하여 안전한 자산 관리 시스템을 구축했습니다.",
           role: "백엔드 및 보안 담당",
@@ -317,152 +317,308 @@ def check_url(self, url):
     projects: [
     {
     id: "phishing-guard",
-    title: "Phishing Guard: Phishing Site Detection and Reporting Platform",
-    period: "2024.06 - In progress",
-    description: "We developed an AI-based phishing detection system to analyze and report malicious URLs in real time.",
-    role: "Front-end developer",
+    title: "Phishing Guard: ALL IN ONE phishing detection and education platform for seniors",
+    period: "2024.01 - In progress",
+    description: "Image & database-based phishing site detection and education community for seniors.",
+    role: "Front-end & Back-end developer & Team lead",
     contribution: 70,
-    mainTech: ["React", "Next.js", "Python", "FastAPI", "MongoDB"],
+    mainTech: ["React", "Next.js", "Python", "Django", "MySql", "AWS", "Docker"],
     thumbnail: "/projects/phishing-guard.png",
     achievements: [
-    "Achieved 95% phishing detection accuracy",
-    "Automatic analysis of AI-based malicious URLs",
-    "Building a database of reported sites (more than 1,000 cases stored)",
+    "Docker container-based server deployment",
+    "Implementation of the first phishing detection model based on bank data comparison",
+    "Senior Friendly UI/UX design",
+    "Applying a checklist based on the Financial Supervisory Service & KCI papers",
     ],
     teamSize: "4 people",
     duration: "In progress",
-    liveDemo: "https://phishing-guard.example.com",
-    githubLink: "https://github.com/YYJ-SH/phishing-guard",
+    liveDemo: "phishingguard-front-pro.vercel.app",
+    githubLink: "https://github.com/YYJ-SH/phishingguardFront",
     documentation: [],
-    coreCode: `// Core logic of phishing detection AI model...`,
+    coreCode: `# Modify the check_url method of the DatabaseChecker class
+    def check_url(self, url):
+    try:
+    normalized_url = normalize_url(url)
+    
+    # Get all financial institution URLs
+    self.cursor.execute("""
+    SELECT CONVERT(name USING utf8mb4) as name, url
+    FROM financial_institutions
+    """)
+    results = self.cursor.fetchall()
+    
+    # Create a dictionary
+    financial_urls = {}
+    for row in results:
+    if row['url'] and row['name']: # null check
+    financial_urls[row['url']] = {
+    'name': row['name'].encode('utf-8').decode('utf-8')
+    }
+    
+    # Debugging
+    print("URL:", url)
+    print("Normalized URL:", normalized_url)
+    print("Financial URLs:", financial_urls)
+    
+    # Check data format before similarity check
+    if not financial_urls:
+    print("Warning: No financial URLs found in database")
+    return None
+    
+    # Similarity check
+    similarity_check = check_url_similarity(normalized_url, financial_urls)
+    print("Similarity Check Result:", similarity_check)
+    `,
     features: [
-    "User report function",
-    "AI-based phishing site analysis",
-    "Automatically save to database",
+    "Voice guidance and font size adjustment function for seniors",
+    "Phishing quiz & education page based on real cases",
+    "Phishing report and phishing analysis & voting Community",
+    "Image-based phishing analysis (URL, phone number, account number)",
+    "AI-based phishing site analysis (checklist-based)",
     ],
     gallery: ["/projects/phishing-1.png", "/projects/phishing-2.png"],
     },
     {
     id: "deidentification-platform",
-    title: "Evewa: Unstructured data deidentification platform",
+    title: "AnonyData: Unstructured personal data de-identification platform",
     period: "2024.03 - 2024.08",
-    description: "Automatically detect and deidentify various unstructured data such as videos, images, and PDFs using YOLO-based AI models. Platform.",
-    role: "Front-end development lead",
+    description: "A platform that automatically detects and de-identifies various unstructured data such as videos, images, and PDFs using YOLO-based AI models.",
+    role: "Front-end & back-end development, AI learning, PM",
     contribution: 80,
     mainTech: ["React", "TypeScript", "Next.js", "TailwindCSS"],
-    thumbnail: "/projects/evwa.png",
-    achievements: [
-    "40% improvement in performance of large-scale data processing",
-    "Implementation of real-time de-identification processing",
-    "Achievement of zero security vulnerabilities",
-    ],
-    teamSize: "5 people",
+    thumbnail: "/projects/evwa.png", achievements: [
+    "Development of automatic face and vehicle license plate detection model",
+    "Achieved 95% accuracy in face and license plate detection",
+    "Implementation of self-PDF encryption and secure viewing function",
+    "Establishment of centralized management system for de-identified data",
+    ]
+    ,
+    teamSize: "4 people",
     duration: "6 months",
     liveDemo: "https://evwa.example.com",
     githubLink: "https://github.com/YYJ-SH/evwa",
-    documentation: [],
-    coreCode: `// Unstructured data de-identification logic...`,
+    documentation: [
+    {
+    type: "PDF",
+    title: "AnonyData unstructured personal information data de-identification platform document",
+    description: "Detailed technical documentation of the AnonyData platform that detects and de-identifies unstructured data.",
+    link: "/projects/evwa.pdf",
+    thumbnail: "/projects/evwa-doc-tumbnail.png", // If there is an actual thumbnail image, the path to it is
+    
+    lastUpdated: "2024-02-18", // The date the document was last modified
+    },
+    {
+    type: "PDF",
+    title: "AnonyData Unstructured Personal Data De-identification Development Document",
+    description: "Detailed technical documentation for the AnonyData platform that detects and de-identifies unstructured data.",
+    link: "/projects/eva.pdf",
+    thumbnail: "/projects/eva-doc-tumbnail.png", // If there is an actual thumbnail image, the path to it
+    lastUpdated: "2024-02-18", // The date the document was last modified
+    }
+    ],
+    coreCode: `for *xyxy, conf, cls in results.xyxy[0].cpu().numpy():
+    x1, y1, x2, y2 = map(int, xyxy)
+    class_id = int(cls)
+    if class_id == 0 and 'face' in masking_targets: # face class
+     faces_detected = True
+     roi = img[y1:y2, x1:x2]
+     masked_roi = apply_masking(roi, masking_method, masking_intensity)
+     img[y1:y2, x1:x2] = np.where(mask[y1:y2, x1:x2, np.newaxis] == 1, masked_roi, roi)
+     elif class_id == 1 and 'licensePlate' in masking_targets: # License plate class
+     roi = img[y1:y2, x1:x2]
+     masked_roi = apply_masking(roi, masking_method, masking_intensity)
+     img[y1:y2, x1:x2] = np.where(mask[y1:y2, x1:x2, np.newaxis] == 1, masked_roi, roi)`,
     features: [
-    "Automatic detection of unstructured data",
-    "Real-time de-identification processing",
-    "Policy-based masking",
-    ],
-    gallery: ["/projects/evwa-1.png", "/projects/evwa-2.png"],
-    },
-    {
-    id: "smart-maritime-logistics",
-    title: "Smart Maritime Logistics: AI-based Asset Management Platform",
-    period: "2023.12 - 2024.05",
-    description: "We built a safe asset management system by analyzing maritime logistics data based on AI and security checklists.",
-    role: "Backend and Security Manager",
-    contribution: 60,
-    mainTech: ["Django", "React", "MongoDB", "Docker", "AWS"],
-    thumbnail: "/projects/maritime.png",
-    achievements: [
-    "Implementation of Asset Management Based on Security Checklist",
-    "Cloud-based Data Storage and Analysis",
-    "Building a Security Vulnerability Response System",
-    ],
-    teamSize: "6 people",
-    duration: "5 months",
-    liveDemo: "https://smart-maritime.example.com",
-    githubLink: "https://github.com/YYJ-SH/smart-maritime",
-    documentation: [],
-    coreCode: `// Marine logistics data analysis logic...`,
-    features: [
-    "AI-based asset management",
-    "Security inspection checklist application",
-    "Real-time data visualization",
-    ],
-    gallery: ["/projects/maritime-1.png", "/projects/maritime-2.png"],
-    },
-    {
-    id: "dopark-numberplate",
-    title: "Vehicle license plate forgery detection system",
-    period: "2023.02",
-    description: "Development of vehicle license plate forgery detection and parking management system. PyTorch-based fake license plate detection feature included.",
-    role: "Front-end developer",
-    contribution: 50,
-    mainTech: ["JavaScript", "React", "Java", "Spring Boot"],
-    thumbnail: "/projects/dopark.png",
-    achievements: [
-    "Achieved 100% vehicle license plate recognition rate",
-    "Detecting forged license plates using SuperGlue module",
-    ],
-    teamSize: "5 people",
-    duration: "4 months",
-    liveDemo: "",
-    githubLink: "",
-    documentation: [],
-    coreCode: `// Vehicle license plate recognition AI model logic...`,
-    features: ["AI-based vehicle license plate recognition", "Forgery detection feature"],
-    gallery: [],
-    },
-    {
-    id: "ai-aquaponics",
-    title: "Artificial Intelligence Aquaponics Tank", period: "2023.08",
-    description: "Developed a remote feeding control and real-time fish tank condition monitoring system using Arduino and YOLOv5.",
-    role: "Full-stack developer",
-    contribution: 80,
-    mainTech: ["Python", "JavaScript", "React NEXT", "Django"],
-    thumbnail: "/projects/aquaponics.png",
-    achievements: [
-    "Implementation of real-time water quality monitoring and remote control",
-    "Development of AI-based plant disease diagnosis model",
-    ],
-    teamSize: "3 people",
-    duration: "6 months",
-    liveDemo: "",
-    githubLink: "",
-    documentation: [],
-    coreCode: `// Aquaponics remote control logic...`,
-    features: ["IoT-based fish tank monitoring", "AI plant disease diagnosis"],
-    gallery: [],
-    },
-    {
-    id: "yangjae-parking",
-    title: "Yangjae AI Hub parking management system UI reorganization",
-    period: "2023.02",
-    description: "We completely reorganized the UX/UI of the Yangjae AI Hub parking management system to improve usability.",
-    role: "Front-end developer",
-    contribution: 100,
-    mainTech: ["Next.js", "React"],
-    thumbnail: "/projects/yangjae.png",
-    achievements: [
-    "Parking management UI/UX improvement",
-    "Responsive design application",
-  ],
-  teamSize: "2 people",
-  duration: "3 months",
-  liveDemo: "",
-  githubLink: "",
-  documentation: [],
-  coreCode: ``,
-  features: ["UX/UI improvements", "Responsive design applied"],
-  gallery: [],
-  },
-  ],
-  },
-  },
+    "Automatic face and license plate detection",
+    "Various masking options (full masking, pixelation, blurring)",
+    "PDF encryption and secure viewing",
+    "Centralized management of de-identified sensitive data",
+    "Anonymized data sharing platform for learning",
+    "Secret key-based enhanced security (file expiration and automatic destruction)"],
+    gallery: ["/projects/evwa-1.gif", "/projects/evwa-2.gif", "/projects/evwa-3.gif", "/projects/evwa-4.gif"],
+},
+{
+id: "smart-maritime-logistics",
+title: "Seacurity: AI-based security asset management platform",
+period: "2023.12 - 2024.05",
+description: "We built a secure asset management system by analyzing maritime logistics data based on AI and security checklists.",
+role: "Backend and Security Manager",
+contribution: 60,
+mainTech: ["Django", "React", "MongoDB", "Docker", "AWS"],
+thumbnail: "/projects/suhemul.png",
+achievements: [
+"Implementation of security checklist-based asset management",
+"Cloud-based data storage and analysis",
+"Response to security vulnerabilities System construction",
+],
+teamSize: "4 people",
+duration: "5 months",
+liveDemo: "https://smart-maritime.example.com",
+githubLink: "https://github.com/YYJ-SH/smart-maritime",
+documentation: [
+{
+type: "PDF",
+title: "Smart Maritime Logistics Platform Technical Document",
+description: "We built a safe asset management system by analyzing marine logistics data based on AI and a security checklist.",
+link: "/projects/suhemul.pdf",
+thumbnail: "/projects/hp-doc-tumbnail.png", // If there is an actual thumbnail image, please provide the path
+lastUpdated: "2024-02-18", // The date the document was last modified
+},
+{
+type: "PDF",
+title: "Smart Maritime Logistics Platform Announcement Document",
+description: "Marine logistics data analyzed based on AI and security We have built a secure asset management system by analyzing the checklist.",
+link: "/projects/hp.pdf",
+thumbnail: "/projects/shm-doc-tumbnail.png", // If there is an actual thumbnail image, the path to it
+lastUpdated: "2024-02-18", // The date the document was last modified
+}
+
+],
+coreCode: `class VulnerabilityDashboardView(APIView):
+authentication_classes = [JWTAuthentication]
+permission_classes = [IsAuthenticated]
+
+def get(self, request):
+try:
+db = settings.MONGO_CLIENT['seacurity']
+assets_collection = db['assets']
+
+# Total number of vulnerabilities
+total_vulnerabilities = assets_collection.aggregate([
+{"$unwind": "$checklist"},
+{"$match": {"checklist.answer": False}}, {"$unwind": "$checklist.vulnerabilities"},
+ {"$count": "total"}
+ ])
+ total_vulnerabilities = next(total_vulnerabilities, {}).get('total', 0)
+
+ # Number of vulnerabilities by asset type
+ vulnerabilities_by_asset_type = list(assets_collection.aggregate([
+ {"$unwind": "$checklist"},
+ {"$match": {"checklist.answer": False}},
+ {"$unwind": "$checklist.vulnerabilities"},
+ {"$group": {"_id": "$type", "count": {"$sum": 1}}},
+ {"$project": {"name": "$_id", "value": "$count", "_id": 0}}
+ ]))
+
+ # Number of vulnerabilities by severity
+ severity_distribution = list(assets_collection. aggregate([
+ {"$unwind": "$checklist"},
+ {"$match": {"checklist.answer": False}},
+ {"$unwind": "$checklist.vulnerabilities"},
+ {"$group": {
+ "_id": "$checklist.vulnerabilities.severity",
+ "count": {"$sum": 1}
+ }},
+ {"$project": {"name": "$_id", "value": "$count", "_id": 0}}
+ ]))
+
+ # Recently discovered vulnerabilities
+ recent_vulnerabilities = list(assets_collection.aggregate([
+ {"$unwind": "$checklist"},
+ {"$match": {"checklist.answer": False}},
+ {"$unwind": "$checklist.vulnerabilities"},
+{"$sort": {"updated_at": -1}},
+{"$limit": 5},
+{"$project": {
+"_id": 1,
+"asset_name": "$attributes.name",
+"asset_type": "$type",
+"vulnerability": "$checklist.vulnerabilities.description",
+"severity": "$checklist.vulnerabilities.severity",
+"discovered_at": "$updated_at"
+}}
+]))
+`,
+features: [
+"AI-based vulnerability check",
+"MITER &ATTACK navigation integration",
+"Security check checklist application",
+"ATTCK TREE flowchart provided",
+"Authorization and login function",
+"USER FRIENDLY dashboard",
+],
+gallery: ["/projects/suhemul-1.png", "/projects/suhemul-2.png", "/projects/suhemul-3.png"],
+},
+{
+id: "dopark-numberplate",
+title: "DoPark: LPR parking management system",
+period: "2023.02",
+description: "Development of a parking management system with a recognition rate of 99%. Including a fake license plate detection feature using PyTorch.",
+role: "Front-end developer",
+contribution: 50,
+mainTech: ["JavaScript", "React", "Java", "Spring Boot"],
+thumbnail: "/projects/donam.png",
+achievements: [
+"Achieved 99% vehicle license plate recognition rate",
+"Development of a forged license plate detection module using SuperGlue",
+"Legacy migration : Jsp to React",
+],
+teamSize: "5 people",
+duration: "4 months",
+liveDemo: "",
+githubLink: "",
+documentation: [],
+coreCode: `This is a private code`,
+features: ["YOLO5-based vehicle license plate recognition", "Forgery detection function"],
+gallery: ["/projects/mj-1.png","/projects/mj-2.png","/projects/mj-3.png"],
+},
+{
+id: "ai-aquaponics",
+title: "Aquaratio: AI fully automatic aquaponics tank",
+period: "2023.08",
+description: "Developed a remote feeding control and real-time fish tank condition monitoring system using Arduino and YOLOv5.",
+role: "Arduino & Front-end & Back-end developer",
+contribution: 80,
+mainTech: ["Python", "JavaScript", "React NEXT", "Django"],
+thumbnail: "/projects/aqua-3.png",
+achievements: [
+"IoT-based Implementation of real-time tank monitoring and remote control",
+"Development of AI-based plant disease diagnosis model",
+"Web-based control solution using MQTT"
+],
+teamSize: "3 people",
+duration: "2 weeks",
+liveDemo: "",
+githubLink: "https://github.com/YYJ-SH/aquaponics",
+documentation: [
+{
+type: "PDF",
+title: "Aquaponics Startup Entrepreneurship Competition Presentation Document",
+description: "This is a presentation document explaining the market value and functions of aquaponics.",
+link: "/projects/aquaponics.pdf",
+thumbnail: "/projects/aqua-doc-tumbnail.png", // If there is an actual thumbnail image, the path to it
+lastUpdated: "2024-02-18", // The date the document was last modified
+},
+],
+coreCode: `// This is private code`,
+features: ["IoT-based fish tank monitoring", "AI plant disease diagnosis", "Automatic feed feeding", "Related product smart store", "Expert matching"],
+gallery: ["/projects/aqua-1.gif", "/projects/aqua-2.gif", "/projects/aqua-2.png","/projects/aqua-1.png"],
+},
+{
+id: "yangjae-parking",
+title: "Yangjae AI Hub parking management system UI reorganization",
+period: "2023.02",
+description: "We have completely reorganized the UX/UI of the Yangjae AI Hub parking management system to improve usability.",
+role: "Front-end developer",
+contribution: 100,
+mainTech: ["Next.js", "React"],
+thumbnail: "/projects/yj-1.png",
+achievements: [
+"Parking management UI/UX Improvement",
+"Building a separate mobile page",
+"Providing a simplified component page"
+],
+teamSize: "2 people",
+duration: "3 months",
+liveDemo: "",
+githubLink: "",
+documentation: [],
+coreCode: ``,
+features: ["UX/UI Improvement", "Applying responsive design", "Providing a summary using Description", "Registration system improvement", "Providing a web app"],
+gallery: ["projects/yj-2.gif", "projects/yj-3.gif"],
+},
+],
+},
+},
 
 };

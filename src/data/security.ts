@@ -339,47 +339,68 @@ export const security = {
             gallery: ["/security/hash-2.png", "/security/hash-3.png"],
           },
           {
-            id: "static-analysis",
-            title: "정적/동적 분석 도구 활용 프로젝트",
+            id: "ai ctf",
+            title: "융보공 AI CTF 개최",
             period: "2024.11",
             description:
-              "융보공 과정에서 진행한 정적 분석과 동적 분석 도구를 활용한 코드 취약점 분석 프로젝트입니다. Bandit, Flawfinder 등의 도구를 활용하여 실제 코드의 취약점을 분석했습니다.",
-            role: "프로젝트 참여자",
-            contribution: 100,
+              "CTFd 플랫폼과, AI를 사용하여 동아리 내에서 CTF & PIZZA라는 이름의 CTF를 개최했습니다.",
+            role: "CTF 출제위원 & 총괄",
+            contribution: 50,
             mainTech: [
-              "정적 분석",
-              "동적 분석",
-              "Bandit",
-              "Flawfinder",
-              "코드 보안",
+              "AI CTF 문제",
+              "AI 보안",
+              "웹 호스팅",
+              "CTFd 구축",
+              "CTF 개최",
             ],
-            thumbnail: "/security/static-analysis.png",
+            thumbnail: "/security/ctf-1.png",
             achievements: [
-              "정적 분석과 동적 분석의 원리 및 차이점 이해",
-              "Bandit을 활용한 Python 코드 취약점 분석",
-              "Flawfinder를 활용한 C/C++ 코드 보안 이슈 탐지",
+              "CTF 참여자 만족도 90% 달성",
+              "학과 최초 AI 보안 문제 출제",
+              "초보자도 도전할 수 있는 PIZZA & LEARN 방식",
+              "5문제 이상 웹 환경 호스팅, SQL 인젝션 문제 출제",
+              "저예산 CTF 개최"
             ],
-            teamSize: "1명",
-            duration: "2주",
+            teamSize: "4명",
+            duration: "3주",
             documentation: [
               {
-                type: "report",
-                title: "코드 취약점 분석 보고서",
+                type: "code",
+                title: "CTF 출제 문제",
                 description:
-                  "정적/동적 분석 도구를 활용한 코드 취약점 분석 결과",
+                  "CTF 개최 때 사용했던 문제들입니다.",
+                link: "https://github.com/YYJ-SH/cftw",
+                thumbnail: "/security/ctf-2.png",
+                lastUpdated: "2024.11.30",
+              },
+              {
+                type: "PDF",
+                title: "CTF 주의사항",
+                description:
+                  "CTF 개최 때 사용했던 PDF 자료입니다",
                 link: "https://github.com/yourusername/code-analysis",
-                thumbnail: "/security/static-doc.png",
+                thumbnail: "/security/ctf-1.png",
+                lastUpdated: "2024.11.30",
+              },
+              {
+                type: "PDF",
+                title: "CTF 라이트업",
+                description:
+                  "AI CTF 라이트업입니다. ",
+                link: "https://creamerburger.tistory.com/59",
+                thumbnail: "/security/ctf-3.png",
                 lastUpdated: "2024.11.30",
               },
             ],
             features: [
-              "정적 분석 도구를 활용한 코드 취약점 스캔",
-              "탐지된 취약점 분석 및 해결 방안 연구",
-              "보안 코딩 가이드라인 수립",
+              "AI 프롬프트 인젝션, 권한부여, API 체이닝, Jailbreaking 활용",
+              "리버싱, 암호학, 웹 해킹, AI 해킹 총 4분야",
+              "CTFd, Flask, 포트포워딩을 통해 구성된 100% 웹 환경",
+              "SQlight를 활용한 실제 DB 인젝션 문제 출제"
             ],
             gallery: [
-              "/security/static-analysis-1.png",
-              "/security/static-analysis-2.png",
+              "/security/ctf-4.png",
+              "/security/ctf-5.png",
             ],
           },
         ],
@@ -388,303 +409,407 @@ export const security = {
   },
   en: {
     security: {
-      title: "Security Experience & Research",
-      subtitle: "Security Technology Research, Education and CTF Activities",
-      overview:
-        "I am learning and researching cyber security technologies through security education programs and CTF participation.",
-      ctf: {
-        platforms: [
-          {
-            name: "Dreamhack",
-            solved: 3,
-            totalProblems: 100,
-            profileUrl: "https://dreamhack.io/yourusername",
-            achievements: [
-              "Solved baby level problems",
-              "Completed basic web vulnerability challenges",
-            ],
-          },
-          {
-            name: "Cryptohack",
-            solved: 5,
-            totalProblems: 50,
-            profileUrl: "https://cryptohack.org/yourusername",
-            achievements: [
-              "Solved basic cryptography problems",
-              "Completed hash function challenges",
-            ],
-          },
-          {
-            name: "LeetCode",
-            solved: 5,
-            totalProblems: 2000,
-            profileUrl: "https://leetcode.com/yourusername",
-            achievements: ["Solved basic algorithm problems"],
-          },
-        ],
-        writeups: [
-          {
-            title: "Hash Functions and Encryption Algorithms Analysis",
-            platform: "Personal Blog",
-            difficulty: "Medium",
-            tags: ["Hash Function", "AES", "SEED", "Java"],
-            writeupUrl: "https://yourblog.tistory.com/writeup1",
-            date: "2024.05.10",
-          },
-          {
-            title: "Performance Comparison of Block Cipher Modes",
-            platform: "Personal Blog",
-            difficulty: "Medium",
-            tags: ["Block Cipher", "AES", "ECB", "CBC", "CFB", "OFB", "CTR"],
-            writeupUrl: "https://yourblog.tistory.com/writeup2",
-            date: "2024.05.20",
-          },
-        ],
-      },
-      articles: [
-        {
-          title:
-            "Analysis of Medical Device Communication Protocol (DICOM) and Security Vulnerabilities",
-          platform: "tistory",
-          date: "2024.10.15",
-          tags: [
-            "DICOM",
-            "Wireshark",
-            "Medical Devices",
-            "Security",
-            "Metasploit",
-          ],
-          url: "https://yourblog.tistory.com/article1",
-          description:
-            "Analysis of medical device communication protocol (DICOM) using Wireshark and vulnerability testing in virtual environments using Metasploit.",
-          thumbnail: "/articles/dicom-analysis.png",
-        },
-        {
-          title: "Deepfake Audio Detection Technology Research",
-          platform: "tistory",
-          date: "2024.10.10",
-          tags: ["Deepfake", "Audio", "AI Security", "Hugging Face"],
-          url: "https://yourblog.tistory.com/article2",
-          description:
-            "Research and experimental results on deepfake audio detection technology using Hugging Face models.",
-          thumbnail: "/articles/deepfake-audio.png",
-        },
-        {
-          title: "DDoS Attack Simulation and Defense Strategies",
-          platform: "tistory",
-          date: "2024.05.30",
-          tags: ["DDoS", "Network Security", "Attack Simulation"],
-          url: "https://yourblog.tistory.com/article3",
-          description:
-            "Analysis of DDoS attack principles and various defense strategies, along with actual simulation results.",
-          thumbnail: "/articles/ddos-simulation.png",
-        },
-      ],
-      teaching: {
-        projects: [
-          {
-            id: "medical-device-security",
-            title: "Medical Device Security Vulnerability Analysis",
-            period: "2024.10",
-            description:
-              "A project analyzing medical device communication protocols conducted during the security engineering course. Used Wireshark to analyze DICOM protocol and tested vulnerabilities in virtual environments with Metasploit.",
-            role: "Project Participant",
-            contribution: 100,
-            mainTech: ["Wireshark", "DICOM", "Metasploit", "Network Security"],
-            thumbnail: "/security/medical-device.png",
-            achievements: [
-              "Analysis and understanding of medical device communication protocol (DICOM)",
-              "Network packet analysis using Wireshark",
-              "Vulnerability testing in virtual environments using Metasploit",
-            ],
-            teamSize: "1 person",
-            duration: "2 weeks",
-            documentation: [
-              {
-                type: "report",
-                title: "Medical Device Communication Security Analysis Report",
-                description:
-                  "DICOM protocol analysis and security vulnerability test results",
-                link: "https://github.com/yourusername/medical-device-security",
-                thumbnail: "/security/dicom-doc.png",
-                lastUpdated: "2024.10.20",
-              },
-            ],
-            features: [
-              "DICOM protocol packet capture and analysis",
-              "Investigation of medical device communication vulnerabilities",
-              "Vulnerability testing in virtual environments",
-            ],
-            gallery: [
-              "/security/dicom-analysis-1.png",
-              "/security/dicom-analysis-2.png",
-            ],
-          },
-          {
-            id: "deepfake-audio-detection",
-            title: "Deepfake Audio Detection System Development",
-            period: "2024.10",
-            description:
-              "An AI security project conducted during the security engineering course, developing a system to detect deepfake audio using Hugging Face models.",
-            role: "Project Participant",
-            contribution: 100,
-            mainTech: ["Hugging Face", "AI", "Audio Analysis", "Deepfake"],
-            thumbnail: "/security/deepfake-audio.png",
-            achievements: [
-              "Learning the principles and risks of deepfake audio technology",
-              "Audio analysis using Hugging Face models",
-              "Implementation of fake voice detection system",
-            ],
-            teamSize: "1 person",
-            duration: "2 weeks",
-            documentation: [
-              {
-                type: "report",
-                title: "Deepfake Audio Detection System Report",
-                description:
-                  "Implementation and test results of AI-based audio deepfake detection system",
-                link: "https://github.com/yourusername/deepfake-audio-detection",
-                thumbnail: "/security/deepfake-doc.png",
-                lastUpdated: "2024.10.10",
-              },
-            ],
-            features: [
-              "Audio feature extraction and analysis",
-              "Fake voice detection using deep learning models",
-              "Real-time audio stream analysis system",
-            ],
-            gallery: [
-              "/security/deepfake-detection-1.png",
-              "/security/deepfake-detection-2.png",
-            ],
-          },
-          {
-            id: "cyber-attack-simulation",
-            title: "Cyber Attack Simulation Exercises",
-            period: "2024.05 - 2024.10",
-            description:
-              "Various cyber attack simulation projects conducted during the security engineering course. Includes DDoS attack simulation, web hacking using Burp Suite, and OWASP Juice Shop vulnerability analysis.",
-            role: "Project Participant",
-            contribution: 100,
-            mainTech: ["DDoS", "Burp Suite", "OWASP", "Web Security"],
-            thumbnail: "/security/cyber-attack.png",
-            achievements: [
-              "Understanding DDoS attack principles and conducting simulation exercises",
-              "Web vulnerability analysis using Burp Suite",
-              "OWASP Top 10 vulnerability practice and research on countermeasures",
-            ],
-            teamSize: "1 person",
-            duration: "20 weeks",
-            documentation: [
-              {
-                type: "report",
-                title: "Comprehensive Cyber Attack Simulation Report",
-                description:
-                  "Practice and analysis results of various cyber attack techniques",
-                link: "https://github.com/yourusername/cyber-attack-simulation",
-                thumbnail: "/security/attack-doc.png",
-                lastUpdated: "2024.10.25",
-              },
-            ],
-            features: [
-              "Network attack simulation and analysis",
-              "Web vulnerability testing and security response",
-              "Security tool utilization and vulnerability analysis report writing",
-            ],
-            gallery: [
-              "/security/attack-simulation-1.png",
-              "/security/attack-simulation-2.png",
-              "/security/attack-simulation-3.png",
-            ],
-          },
-          {
-            id: "crypto-security",
-            title: "Cryptographic Algorithm Analysis and Implementation",
-            period: "2024.04 - 2024.05",
-            description:
-              "Cryptography-related project conducted during the security engineering course. Analyzed and implemented various cryptographic algorithms including hash functions, block ciphers (AES, SEED), and symmetric/asymmetric key encryption.",
-            role: "Project Participant",
-            contribution: 100,
-            mainTech: [
-              "Cryptography",
-              "Hash Functions",
-              "AES",
-              "SEED",
-              "Java",
-              "Python",
-            ],
-            thumbnail: "/security/crypto.png",
-            achievements: [
-              "Implementation and performance comparison of various hash functions",
-              "Analysis of five operational modes of block ciphers",
-              "Comparison of time and security between symmetric and asymmetric key encryption",
-            ],
-            teamSize: "1 person",
-            duration: "6 weeks",
-            documentation: [
-              {
-                type: "report",
-                title: "Cryptographic Algorithm Analysis Report",
-                description:
-                  "Implementation and performance analysis of various encryption algorithms",
-                link: "https://github.com/yourusername/crypto-security",
-                thumbnail: "/security/crypto-doc.png",
-                lastUpdated: "2024.05.30",
-              },
-            ],
-            features: [
-              "Implementation and performance testing of various hash functions",
-              "Experimentation and analysis of block cipher modes",
-              "Security evaluation of encryption algorithms",
-            ],
-            gallery: ["/security/crypto-1.png", "/security/crypto-2.png"],
-          },
-          {
-            id: "static-analysis",
-            title: "Static/Dynamic Analysis Tools Utilization Project",
-            period: "2024.11",
-            description:
-              "A code vulnerability analysis project using static and dynamic analysis tools conducted during the security engineering course. Used tools such as Bandit and Flawfinder to analyze vulnerabilities in actual code.",
-            role: "Project Participant",
-            contribution: 100,
-            mainTech: [
-              "Static Analysis",
-              "Dynamic Analysis",
-              "Bandit",
-              "Flawfinder",
-              "Code Security",
-            ],
-            thumbnail: "/security/static-analysis.png",
-            achievements: [
-              "Understanding the principles and differences between static and dynamic analysis",
-              "Python code vulnerability analysis using Bandit",
-              "Detection of C/C++ code security issues using Flawfinder",
-            ],
-            teamSize: "1 person",
-            duration: "2 weeks",
-            documentation: [
-              {
-                type: "report",
-                title: "Code Vulnerability Analysis Report",
-                description:
-                  "Code vulnerability analysis results using static/dynamic analysis tools",
-                link: "https://github.com/yourusername/code-analysis",
-                thumbnail: "/security/static-doc.png",
-                lastUpdated: "2024.11.30",
-              },
-            ],
-            features: [
-              "Code vulnerability scanning using static analysis tools",
-              "Analysis of detected vulnerabilities and research on solutions",
-              "Establishment of secure coding guidelines",
-            ],
-            gallery: [
-              "/security/static-analysis-1.png",
-              "/security/static-analysis-2.png",
-            ],
-          },
-        ],
-      },
+    title: "Security Experience & Research",
+    subtitle: "Security Technology Research, Education, and CTF Activities",
+    overview:
+    "I am learning and researching cybersecurity technologies through participating in the Convergence Security Engineering course and CTF activities. I will learn them one by one.",
+    ctf: {
+    platforms: [
+    {
+    name: "Dreamhack (LV1)",
+    solved: 8,
+    totalProblems: 212,
+    profileUrl: "https://dreamhack.io/yourusername",
+    achievements: ["Basic Step Problem Solving", "Basic Web Vulnerability Problem Solving"],
     },
+    {
+    name: "Cryptohack",
+    solved: 5,
+    totalProblems: 50,
+    profileUrl: "https://cryptohack.org/yourusername",
+    achievements: ["Basic Cryptography Problem Solving", "Hash Function Related Problem Solving"],
+    },
+    {
+    name: "LeetCode",
+    solved: 5,
+    totalProblems: 2000,
+    profileUrl: "https://leetcode.com/yourusername",
+    achievements: ["Algorithm Basic Problem Solving"],
+    },
+    ],
+    writeups: [
+    {
+    title: "Yongbogong AI CTF Issuer Lightup",
+    platform: "Tistory",
+    difficulty: "Hard",
+    tags: ["Examiner", "AI", "AI Security", "CTF"],
+    writeupUrl: "https://creamerburger.tistory.com/59",
+    date: "2024.11.22",
+    },
+    {
+    title: "Hack the Box Nmap 2nd",
+    platform: "Tistory",
+    difficulty: "Medium",
+    tags: ["Hash Function", "AES", "SEED", "Java"],
+    writeupUrl: "https://creamerburger.tistory.com/28",
+    date: "2024.05.10",
+    },
+    {
+    title: "Know or Don't Know (Crypto)",
+    platform: "Personal Blog",
+    difficulty: "Easy",
+    tags: ["CryptoHack", "Cipher", "XOR", "Python"],
+    writeupUrl: "https://creamerburger.tistory.com/47",
+    date: "2024.10.11",
+    },
+    {
+    title: "The Best Time to Buy and Sell Stocks",
+    platform: "Personal Blog",
+    difficulty: "Easy",
+    tags: ["LeetCode", "algorithm"],
+    writeupUrl: "https://creamerburger.tistory.com/46",
+    date: "2024.10.11",
+    },
+    {
+    title: "XOR Introduction",
+    platform: "Personal Blog",
+    difficulty: "Easy",
+    tags: ["CryptoHack", "Cipher", "XOR", "Python"],
+    writeupUrl: "https://creamerburger.tistory.com/43",
+    date: "2024.10.11",
+    },
+    {
+    title: "Sexy Inversion Algorithm",
+    platform: "Personal Blog",
+    difficulty: "Easy",
+    tags: ["LeetCode", "algorithm"],
+    writeupUrl: "https://creamerburger.tistory.com/44",
+    date: "2024.10.11",
+    },
+    {
+    title: "Cookie",
+    platform: "Personal Blog",
+    difficulty: "Easy",
+    tags: ["DreamHack", "web", "cookie"],
+    writeupUrl: "https://creamerburger.tistory.com/40",
+    date: "2024.10.11",
+    },
+    ],
+    },
+    articles: [
+    
+    {
+    title: " Hack the box to practice Nmap",
+    platform: "tistory",
+    date: "2024.05.10",
+    tags: ["Nmap", "Hackthebox", "Port Scan", "Network"],
+    url: "https://creamerburger.tistory.com/27",
+    description:
+    "This is a blog post explaining the Nmap command and how to handle it in hack the box.",
+    thumbnail: "/articles/nmap.png",
+    },
+    {
+    title: "PIkit: The Ghost in Your Multi-Socket Machine(English)",
+    platform: "medium",
+    date: "2024.01.14",
+    tags: ["paper review", "English", "Pikit", "USENIX"],
+    url: "https://medium.com/@creamerburger/pikit-the-ghost-in-your-multi-socket-machine-bfdf25bf9cf2",
+    description:
+    "This is a Pikit paper review that explains the paper in an easy-to-understand way (written in English)",
+    thumbnail: "/articles/pikit.png",
+    },
+    {
+    title:
+    "AI CTF hosting memoir - Hosting CTF with inexperienced people and low budget in a short period of time",
+    platform: "tistory",
+    date: "2025.01.10",
+    tags: ["AI", "AI security", "AI CTF", "problem solver"],
+    url: "https://creamerburger.tistory.com/50",
+    description: "This is a CTF hosting memoir.",
+    thumbnail: "/articles/ctfsweat.png",
+    },
+    {
+    title: "Building CTFd",
+    platform: "tistory",
+    date: "2024.05.30",
+    tags: ["CTFd", "Building CTFd Platform"],
+    url: "https://creamerburger.tistory.com/53",
+    description:
+    "This is a blog post explaining how to upload CTFd, a CTF platform.",
+    thumbnail: "/articles/setup.png",
+    },
+    {
+    title: "[Breaking ASLR with AVX Timing] - Paper Review",
+    platform: "tistory",
+    date: "2024.05.10",
+    tags: ["paper review", "DAC", "ASLR", "AVX"],
+    url: "https://creamerburger.tistory.com/51",
+    description:
+    "AVX Timing Side-Channel Attacks against Address Space Layout Randomization Paper Review",
+    thumbnail: "/articles/aslr.png",
+    },
+    {
+    title: "[From Crawling to Macro] Using BeautifulSoup and Selenium",
+    platform: "tistory",
+    date: "2024. 5. 17",
+    tags: ["Crawling", "Macro", "BeautifulSoup", "Selenium"],
+    url: "https://creamerburger.tistory.com/32",
+    description:
+    "How to crawl desired web pages and add macro comments using BeautifulSoup and Selenium",
+    thumbnail: "/articles/macro.png",
+    },
+    ],
+    teaching: {
+    projects: [
+    {
+    id: "medical-device-security",
+    title: "Medical device security vulnerability analysis",
+    period: "2024.10",
+    description:
+    "This is a medical device communication protocol analysis project conducted in the fusion course. We analyzed the DICOM protocol using Wireshark and tested virtual environment vulnerabilities with Metasploit.",
+    role: "Project Instructor",
+    contribution: 100,
+    mainTech: ["Wireshark", "DICOM", "Metasploit", "Network Security"], thumbnail: "/security/dicom.png",
+    achievements: [
+    "Analysis and Understanding of Medical Device Communication Protocol (DICOM)",
+    "Network Packet Analysis Using Wireshark",
+    "Testing Vulnerabilities in Win 7 Virtual Environment Using Metasploit",
+    ],
+    teamSize: "1 person",
+    duration: "1 week",
+    documentation: [
+    {
+    type: "PDF",
+    title: "Club Presentation Materials",
+    description: "DICOM Protocol Analysis and Metasploit Practice",
+    link: "/security/dicom.pdf",
+    thumbnail: "/security/dicom-doc.png",
+    lastUpdated: "2024.10.11",
+    },
+    ],
+    features: [
+    "DICOM Protocol Packet Analysis",
+    "Investigating Medical Device Communication Vulnerabilities",
+    "Learning Metasploit Commands",
+    "Attacking in Win 7 Virtual Environment with Metasploit",
+    ],
+    gallery: [
+    "/security/dicom-1.png",
+    "/security/dicom-2.png",
+    ],
+    },
+    {
+    id: "deepfake-audio-detection",
+    title: "Development of a Deepfake Audio Detection System",
+    period: "2024.10",
+    description:
+    "As an AI security-related project conducted during the Convergence Engineering course, we developed a system to detect deepfake audio using the Hugging Face model.",
+    role: "Project Instructor",
+    contribution: 100,
+    mainTech: ["Hugging Face", "AI", "Audio Analysis", "Deepfake"],
+    thumbnail: "/security/deepfake.png",
+    achievements: [
+    "Learning the principles and risks of deepfake audio technology",
+    "Learning how to use Hugging Face",
+    "Development practice of a deepfake audio detector using the Huggigface pipeline",
+    ],
+    teamSize: "1 person",
+    duration: "1 week",
+    documentation: [
+    {
+    type: "PDF",
+    title: "Deepfake Audio Detection Club Presentation Report",
+    description:
+    "Deepfake, Huggingface, Deepfake Detector Development Practice",
+    link: "/security/deepfake.pdf",
+    thumbnail: "/security/deepfake-doc.png",
+    lastUpdated: "2024.10.05",
+    },
+    ],
+    
+    features: [
+    "Huggingface Platform Learning",
+    "Fake Voice Detection Using Deep Learning Model",
+    "GUI Results Using PyQt",
+    ],
+    gallery: [
+    "/security/deepfake-1.png",
+    "/security/deepfake-2.png",
+    ],
+    },
+    {
+    id: "cyber-attack-simulation",
+    title: "Web Hacking Simulation Practice",
+    period: "2024.05 - 2024.10",
+    description:
+    "This is a variety of web attack simulation projects conducted during the fusion course. Includes DDoS attack simulation, web hacking using Burp Suite, OWASP Juice Shop vulnerability analysis, etc.",
+    role: "Project Instructor",
+    contribution: 100,
+    mainTech: ["DDoS", "Burp Suite", "OWASP", "Web Security"],
+    thumbnail: "/security/owasp.png",
+    achievements: [
+    "Understanding DDoS attack principles and simulation practice",
+    "Designing and building a vulnerable server environment",
+    "Web vulnerability analysis using Burp Suite",
+    "OWASP Top 10 vulnerability practice and response method study",
+    ],
+    teamSize: "1 person",
+    duration: "3 weeks",
+    documentation: [
+    {
+    type: "code",
+    title: "DDOS vulnerable server code",
+    description: "Server code consisting of heavy functions so that it can be easily taken down by DDOS.",
+    link: "https://github.com/YYJ-SH/ddostest",
+    thumbnail: "/security/ddos-thumb.png",
+    lastUpdated: "2024.10.25",
+    },
+    {
+    type: "PDF",
+    title: "DDOS presentation material",
+    description: "Server code consisting of heavy functions so that it can be easily downloaded by DDOS.",
+    link: "/security/NINE.pdf",
+    thumbnail: "/security/ddos-doc.png",
+    lastUpdated: "2024.10.25",
+    },
+    {
+    type: "PDF",
+    title: "burp suite presentation material",
+    description: "burp suite installation and practice.",
+    link: "/security/burp.pdf",
+    thumbnail: "/security/burp-1.png",
+    lastUpdated: "2024.10.11",
+    },
+    {
+    type: "PDF",
+    title: "OWASP presentation material",
+    description: "OWASP juice shop and OWASP ZAP hands-on.",
+    link: "/security/owasp.pdf",
+    thumbnail: "/security/owasp-zap.png",
+    lastUpdated: "2024.10.25",
+    },
+  ],
+  features: [
+  "DDOS attack on self-server configured with port forwarding",
+  "Web vulnerability scanning practice using OWASP ZAP",
+  "Writing Owasp Juice Shop vulnerability analysis report",
+  "Virtual shopping mall site attack using Burp Suite",
+  
+  ],
+  gallery: [
+  "/security/burp-2.png",
+  "/security/burp-3.png",
+  "/security/owasp-4.png",
+  ],
+  },
+  {
+  id: "crypto-security",
+  title: "Analysis and implementation of encryption algorithms",
+  period: "2024.04 - 2024.05",
+  description:
+  "This is a cryptography-related project conducted during the Yongbogong course. We analyzed and implemented various encryption algorithms such as hash functions, block ciphers (AES, SEED), and symmetric/asymmetric key encryption.",
+  role: "Project instructor",
+  contribution: 100, mainTech: ["Crypto", "Hash Function", "AES", "SEED", "Java", "Python"],
+  thumbnail: "/security/hash-1.png",
+  achievements: [
+  "Implementation of various hash functions and performance comparison",
+  "Analysis of five operation modes of block ciphers",
+  "Comparison of symmetric key and asymmetric key encryption time and security",
+  ],
+  teamSize: "1 person",
+  duration: "2 weeks",
+  documentation: [
+  {
+  type: "code",
+  title: "Speed ​​comparison function by encryption algorithm",
+  description: "Use of various encryption algorithm libraries and performance analysis",
+  link: "https://creamerburger.tistory.com/29",
+  thumbnail: "/security/cpt-1.png",
+  lastUpdated: "2024.05.30",
+  },
+  {
+  type: "PDF",
+  title: "Hash Function Session Presentation Material",
+  description: "Use of various encryption algorithm libraries and performance analysis",
+  link: "https://creamerburger.tistory.com/29",
+  thumbnail: "/security/cpt-2.png",
+  lastUpdated: "2024.05.30",
+  },
+  ],
+  features: [
+  "Implementation of various hash functions and performance tests",
+  "Experiment and analysis by block cipher mode",
+  "Security evaluation of encryption algorithms",
+  ],
+  gallery: ["/security/hash-2.png", "/security/hash-3.png"],
+  },
+  {
+  id: "ai ctf",
+  title: "Yongbogong AI CTF held",
+  period: "2024.11",
+  description:
+  "Using the CTFd platform and AI, a CTF called CTF & PIZZA was held within the club. ",
+  role: "CTF Examination Committee & General Manager",
+  contribution: 50,
+  mainTech: [
+  "AI CTF Problems",
+  "AI Security",
+  "Web Hosting",
+  "CTFd Construction",
+  "CTF Hosting",
+  ],
+  thumbnail: "/security/ctf-1.png",
+  achievements: [
+  "Achieved 90% satisfaction of CTF participants",
+  "First AI security problem in the department",
+  "PIZZA & LEARN method that even beginners can challenge",
+  "Web environment hosting of 5 or more problems, SQL injection problem",
+  "Low-budget CTF held"
+  ],
+  teamSize: "4 people",
+  duration: "3 weeks",
+  documentation: [
+  {
+  type: "code",
+  title: "CTF Examination Problems",
+  description:
+  "These are the problems used when the CTF was held.",
+  link: "https://github.com/YYJ-SH/cftw",
+  thumbnail: "/security/ctf-2.png",
+  lastUpdated: "2024.11.30",
+  },
+  {
+  type: "PDF",
+  title: "CTF Precautions",
+  description:
+  "This is the PDF data used during the CTF",
+  link: "https://github.com/yourusername/code-analysis",
+  thumbnail: "/security/ctf-1.png",
+  lastUpdated: "2024.11.30",
+  },
+  {
+  type: "PDF",
+  title: "CTF Lightup",
+  description:
+  "This is AI CTF Lightup. ",
+  link: "https://creamerburger.tistory.com/59",
+  thumbnail: "/security/ctf-3.png",
+  lastUpdated: "2024.11.30",
+  },
+  ],
+  features: [
+  "AI prompt injection, authorization, API chaining, Jailbreaking utilization",
+  "Reversing, cryptography, web hacking, AI hacking in 4 fields",
+  "100% web environment configured through CTFd, Flask, port forwarding",
+  "Real DB injection problem using SQlight"
+  ],
+  gallery: [
+  "/security/ctf-4.png",
+  "/security/ctf-5.png",
+  ],
+  },
+  ],
+  },
+  },
   },
 };

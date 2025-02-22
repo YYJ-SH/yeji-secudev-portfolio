@@ -99,101 +99,100 @@ export const certifications = {
     },
     en: {
       certifications: {
-        title: "Certifications & Education",
-        subtitle: "Professional Certifications and Completed Education Programs",
-        certificates: [
-          // ✅ Certifications
-          {
-            name: "Linux Master Level 2",
-            issuer: "Information and Communication Technology Qualification Test (KAIT)",
-            date: "2023.12",
-            type: "certification",
-            image: "/certificates/linux-master.png",
-          },
-          {
-            name: "Web Design Technician",
-            issuer: "Korea Industrial Human Resources Corporation",
-            date: "2023.07",
-            type: "certification",
-            image: "/certificates/web-design.png",
-          },
-          {
-            name: "Network Security Manager Level 2",
-            issuer: "Korea Information & Communication Qualification Association (ICQA)",
-            date: "2023.10",
-            type: "certification",
-            image: "/certificates/network-security.png",
-          },
-          {
-            name: "Information Processing Engineer (Written Exam)",
-            issuer: "Korea Industrial Human Resources Corporation",
-            date: "2024.03",
-            type: "certification",
-            image: "/certificates/info-security.png",
-          },
-          {
-            name: "Cyber Security Engineer (Written Exam)",
-            issuer: "Korea Broadcasting and Telecommunications Agency",
-            date: "2024.09",
-            type: "certification",
-            image: "/certificates/cyber-security.png",
-          },
-          {
-            name: "OA Master (Excel, PowerPoint, Internet)",
-            issuer: "Korea Productivity Center",
-            date: "2023.03",
-            type: "certification",
-            image: "/certificates/oa-master.png",
-          },
-          
-  
-          // ✅ Education (License)
-          {
-            name: "Fusion Security Talent Training (Blockchain Field)",
-            issuer: "Korea Information Security Industry Association",
-            date: "2023.09",
-            type: "license",
-            image: "/certificates/blockchain.png",
-          },
-          {
-            name: "Human Pose Generation System Using AI",
-            issuer: "Playdata Academy",
-            date: "2022.05 ~ 2022.11",
-            type: "license",
-            image: "/certificates/ai-pose-generation.png",
-          },
-          {
-            name: "ICT Convergence Industry Security Training (Smart Medical Field)",
-            issuer: "Korea Information Security Industry Association",
-            date: "2024.07",
-            type: "license",
-            image: "/certificates/smart-medical.png",
-          },
-  
-          // ✅ Awards
-          {
-            name: "Grand Prize in Convergence Security Software Competition",
-            issuer: "Sungshin Women's University",
-            date: "2024.08",
-            type: "award",
-            image: "/awards/convergence-security.png",
-          },
-          {
-            name: "3rd Place in ICT Mentoring Contest",
-            issuer: "Korea IT Women's Business Association",
-            date: "2024.12",
-            type: "award",
-            image: "/awards/ict-mentoring.png",
-          },
-          {
-            name: "Excellence Award at ACK 2024",
-            issuer: "Korea Information Processing Society",
-            date: "2024.11",
-            type: "award",
-            image: "/awards/aack-conference.png",
-          },
-        ],
+      title: "Certification & Education Completion",
+      subtitle: "Qualifications and Education Completion Courses that Prove Professionalism",
+      certificates: [
+      // ✅ Certifications
+      {
+      name: "Linux Master Level 2",
+      issuer: "Information and Communication Technology Qualification Test (KAIT)",
+      date: "2023.12",
+      type: "certification",
+      image: "/certificates/linux.png",
       },
-    },
+      {
+      name: "Web Design Technician",
+      issuer: "Korea Human Resources Development Institute of Korea",
+      date: "2023.07",
+      type: "certification",
+      image: "/certificates/webdesign.png",
+      },
+      {
+      name: "Network Administrator Level 2",
+      issuer: "Korea Information and Communication Qualification Association (ICQA)",
+      date: "2023.10",
+      type: "certification",
+      image: "/certificates/network.png",
+      },
+      {
+      name: "Information Processing Engineer (Written)",
+      issuer: "Korea Human Resources Development Institute of Korea",
+      date: "2024.03",
+      type: "certification",
+      image: "/certificates/jungchugi.png",
+      },
+      {
+      name: "Information Security Engineer (Written)",
+      issuer: "Korea Broadcasting and Communications Promotion Agency",
+      date: "2024.09",
+      type: "certification",
+      image: "/certificates/security.png",
+      },
+      {
+      name: "OA Master (Excel, PPT, Internet)",
+      issuer: "Korea Productivity Center",
+      date: "2023.03",
+      type: "certification",
+      image: "/certificates/oamaster.png",
+      },
+      
+      // ✅ Education Completion (License)
+      {
+      name: "Fusion Security Human Resources Training (Blockchain Field)",
+      issuer: "Korea Information Protection Industry Association",
+      date: "2023.09",
+      type: "license",
+      image: "/certificates/blockchain.png",
+      },
+      {
+      name: "Development of Human Pose Generation System Using Artificial Intelligence",
+      issuer: "Playdata Lifelong Education Center",
+      date: "2022.05 ~ 2022.11",
+      type: "license",
+      image: "/certificates/playdata.png",
+      },
+      {
+      name: "ICT Convergence Industry Security Human Resources Training (Smart Medical Field)",
+      issuer: "Korea Information Protection Industry Association",
+      date: "2024.07",
+      type: "license",
+      image: "/certificates/smart.png",
+      },
+      
+      // ✅ Awards
+      {
+      name: "Convergence Security Creative Software Competition (Grand Prize)",
+      issuer: "Sungshin Women's University",
+      date: "2024.08",
+      type: "award",
+      image: "/certificates/securitydevelope.jpg",
+      },
+      {
+      name: "ICT Mentoring Competition (3rd Place)",
+      issuer: "Korea IT Women Entrepreneurs Association",
+      date: "2024.12",
+      type: "award",
+      image: "/certificates/kibwa.jpg",
+      },
+      {
+      name: "ACK 2024 Paper Excellence Award",
+      issuer: "Information Processing Society",
+      date: "2024.11",
+      type: "award",
+      image: "/certificates/paper.jpg",
+      },
+      ],
+      },
+      },
   };
   

@@ -20,7 +20,7 @@ import {
 import { Search } from "lucide-react";
 
 // 디바운스 hook 최적화
-function useDebounce(value, delay = 500) {
+function useDebounce(value: unknown, delay = 500) {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
@@ -37,7 +37,13 @@ function useDebounce(value, delay = 500) {
 }
 
 // 메모이즈된 검색 입력 컴포넌트
-const SearchInput = memo(({ placeholder, value, onChange }) => (
+interface SearchInputProps {
+  placeholder: string;
+  value: string;
+  onChange: (value: string) => void;
+}
+
+const SearchInput = memo(({ placeholder, value, onChange }: SearchInputProps) => (
   <div className="relative mb-6">
     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={18} />
     <Input
@@ -51,7 +57,13 @@ const SearchInput = memo(({ placeholder, value, onChange }) => (
 ));
 
 // 페이지네이션 컴포넌트 메모이제이션
-const PaginationComponent = memo(({ currentPage, totalPages, setPage }) => {
+interface PaginationComponentProps {
+  currentPage: number;
+  totalPages: number;
+  setPage: (page: number) => void;
+}
+
+const PaginationComponent = memo(({ currentPage, totalPages, setPage }: PaginationComponentProps) => {
   if (totalPages <= 1) return null;
 
   return (
@@ -107,7 +119,7 @@ const PaginationComponent = memo(({ currentPage, totalPages, setPage }) => {
 });
 
 // 데이터 필터링을 위한 안전한 함수
-const safeIncludes = (text, searchTerm) => {
+const safeIncludes = (text:any, searchTerm:any) => {
   if (!text || !searchTerm) return false;
   try {
     return text.toLowerCase().includes(searchTerm.toLowerCase());
@@ -149,14 +161,14 @@ export default function SecurityPage() {
   const [filteredProjects, setFilteredProjects] = useState(initialProjects);
 
   // 데이터 필터링 함수 - useCallback으로 최적화
-  const filterWriteups = useCallback((query) => {
+  const filterWriteups = useCallback((query:any) => {
     if (!query || query.length === 0) return initialWriteups;
     
     const searchLower = query.toLowerCase();
     return initialWriteups.filter(item => {
       // 안전하게 접근
       const titleMatch = item.title && safeIncludes(item.title, searchLower);
-      const descMatch = item.description && safeIncludes(item.description, searchLower);
+      const descMatch = false;
       const tagsMatch = item.tags && Array.isArray(item.tags) && 
         item.tags.some(tag => tag && safeIncludes(tag, searchLower));
       
@@ -164,7 +176,7 @@ export default function SecurityPage() {
     });
   }, [initialWriteups]);
 
-  const filterArticles = useCallback((query) => {
+  const filterArticles = useCallback((query:any) => {
     if (!query || query.length === 0) return initialArticles;
     
     const searchLower = query.toLowerCase();
@@ -178,7 +190,7 @@ export default function SecurityPage() {
     });
   }, [initialArticles]);
 
-  const filterProjects = useCallback((query) => {
+  const filterProjects = useCallback((query:any) => {
     if (!query || query.length === 0) return initialProjects;
     
     const searchLower = query.toLowerCase();
@@ -386,21 +398,23 @@ export default function SecurityPage() {
           )}
           
           {!isPending && filteredProjects.length > 0 ? (
-            <>
-              <div className="space-y-16">
-                {paginatedProjects.map((project) => (
-                  <RetroProjectCard key={project.id} project={project} />
-                ))}
-              </div>
-              <PaginationComponent 
-                currentPage={currentProjectPage} 
-                totalPages={totalProjectPages} 
-                setPage={setCurrentProjectPage} 
-              />
-            </>
-          ) : !isPending && (
-            <p className="text-gray-500 italic">No projects found matching your search criteria.</p>
-          )}
+  <>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      {paginatedProjects.map((project) => (
+        <RetroProjectCard key={project.id} project={project} />
+      ))}
+    </div>
+    <PaginationComponent 
+      currentPage={currentProjectPage} 
+      totalPages={totalProjectPages} 
+      setPage={setCurrentProjectPage} 
+    />
+  </>
+) : !isPending && (
+  <p className="text-gray-500 italic">
+    검색조건에 맞는 내용이 없습니다.
+  </p>
+)}
         </section>
       )}
     </main>

@@ -15,7 +15,7 @@ export default function CertificationsPage() {
   };
 
   // 언어에 따른 섹션 제목 설정
-  const getSectionTitle = (type) => {
+  const getSectionTitle = (type: string) => {
     if (language === 'ko') {
       switch (type) {
         case 'certification':
