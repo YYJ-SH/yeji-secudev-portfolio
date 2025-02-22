@@ -209,7 +209,7 @@ export const security = {
               },
             ],
             features: [
-              "AI 프롬프트 인젝션, 권한부여, API 체이닝, Jailbreaking 활용",
+              "AI 프롬프트 인젝션, 과도한 권한, API 체이닝, Jailbreaking 활용",
               "리버싱, 암호학, 웹 해킹, AI 해킹 총 4분야",
               "CTFd, Flask, 포트포워딩을 통해 구성된 100% 웹 환경",
               "SQlight를 활용한 실제 DB 인젝션 문제 출제"
