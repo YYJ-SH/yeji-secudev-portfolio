@@ -290,58 +290,7 @@ export default function SecurityPage() {
       </section>
 
       {/* 🛡 CTF Section */}
-      <section className="container mx-auto px-6 mb-16">
-        <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 
-                     text-transparent bg-clip-text mb-8">
-        {language === "ko" ? "CTF&문제풀이" : "CTF&Problem Solving"}
-        </h2>
-
-        {/* ✅ Platform Stats */}
-        {/* {security.ctf?.platforms?.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {security.ctf.platforms.map((platform) => (
-              <PlatformStatsCard key={platform.name} platform={platform} />
-            ))}
-          </div>
-        )} */}
-
-        {/* ✅ Write-ups with Search and Pagination */}
-        {initialWriteups.length > 0 && (
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-gray-700">{language === "ko" ? "라이트업(추가 중)" : "Write-ups"}</h3>
-            
-            {/* 검색 입력 컴포넌트 */}
-            <SearchInput 
-              placeholder="Search"
-              value={writeupInput}
-              onChange={handleWriteupChange}
-            />
-            
-            {isPending && (
-              <p className="text-gray-500">
-                {language === "ko" ? "검색 중..." : "Searching..."}
-              </p>
-            )}
-            
-            {!isPending && filteredWriteups.length > 0 ? (
-              <>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {paginatedWriteups.map((writeup) => (
-                    <WriteupCard key={writeup.id || writeup.title} writeup={writeup} />
-                  ))}
-                </div>
-                <PaginationComponent 
-                  currentPage={currentWriteupPage} 
-                  totalPages={totalWriteupPages} 
-                  setPage={setCurrentWriteupPage} 
-                />
-              </>
-            ) : !isPending && (
-              <p className="text-gray-500 italic">No write-ups found matching your search criteria.</p>
-            )}
-          </div>
-        )}
-      </section>
+     
 
       {/* 🛡 Blog Articles Section with Search and Pagination */}
       {initialArticles.length > 0 && (
@@ -417,6 +366,58 @@ export default function SecurityPage() {
 )}
         </section>
       )}
+       <section className="container mx-auto px-6 mb-16">
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 
+                     text-transparent bg-clip-text mb-8">
+        {language === "ko" ? "CTF&문제풀이" : "CTF&Problem Solving"}
+        </h2>
+
+        {/* ✅ Platform Stats */}
+        {/* {security.ctf?.platforms?.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {security.ctf.platforms.map((platform) => (
+              <PlatformStatsCard key={platform.name} platform={platform} />
+            ))}
+          </div>
+        )} */}
+
+        {/* ✅ Write-ups with Search and Pagination */}
+        {initialWriteups.length > 0 && (
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-gray-700">{language === "ko" ? "라이트업(추가 중)" : "Write-ups"}</h3>
+            
+            {/* 검색 입력 컴포넌트 */}
+            <SearchInput 
+              placeholder="Search"
+              value={writeupInput}
+              onChange={handleWriteupChange}
+            />
+            
+            {isPending && (
+              <p className="text-gray-500">
+                {language === "ko" ? "검색 중..." : "Searching..."}
+              </p>
+            )}
+            
+            {!isPending && filteredWriteups.length > 0 ? (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {paginatedWriteups.map((writeup) => (
+                    <WriteupCard key={writeup.id || writeup.title} writeup={writeup} />
+                  ))}
+                </div>
+                <PaginationComponent 
+                  currentPage={currentWriteupPage} 
+                  totalPages={totalWriteupPages} 
+                  setPage={setCurrentWriteupPage} 
+                />
+              </>
+            ) : !isPending && (
+              <p className="text-gray-500 italic">No write-ups found matching your search criteria.</p>
+            )}
+          </div>
+        )}
+      </section>
     </main>
   );
 }

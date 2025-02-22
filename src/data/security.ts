@@ -155,6 +155,71 @@ export const security = {
       teaching: {
         projects: [
           {
+            id: "ai ctf",
+            title: "융보공 AI CTF 개최",
+            period: "2024.11",
+            description:
+              "CTFd 플랫폼과, AI를 사용하여 동아리 내에서 CTF & PIZZA라는 이름의 CTF를 개최했습니다.",
+            role: "CTF 출제위원 & 총괄",
+            contribution: 50,
+            mainTech: [
+              "AI CTF 문제",
+              "AI 보안",
+              "웹 호스팅",
+              "CTFd 구축",
+              "CTF 개최",
+            ],
+            thumbnail: "/security/ctf-1.png",
+            achievements: [
+              "CTF 참여자 만족도 90% 달성",
+              "학과 최초 AI 보안 문제 출제",
+              "초보자도 도전할 수 있는 PIZZA & LEARN 방식",
+              "5문제 이상 웹 환경 호스팅, SQL 인젝션 문제 출제",
+              "저예산 CTF 개최"
+            ],
+            teamSize: "4명",
+            duration: "3주",
+            documentation: [
+              {
+                type: "code",
+                title: "CTF 출제 문제",
+                description:
+                  "CTF 개최 때 사용했던 문제들입니다.",
+                link: "https://github.com/YYJ-SH/cftw",
+                thumbnail: "/security/ctf-2.png",
+                lastUpdated: "2024.11.30",
+              },
+              {
+                type: "PDF",
+                title: "CTF 주의사항",
+                description:
+                  "CTF 개최 때 사용했던 PDF 자료입니다",
+                link: "/security/ctf.pdf",
+                thumbnail: "/security/ctf-1.png",
+                lastUpdated: "2024.11.30",
+              },
+              {
+                type: "PDF",
+                title: "CTF 라이트업",
+                description:
+                  "AI CTF 라이트업입니다. ",
+                link: "https://creamerburger.tistory.com/59",
+                thumbnail: "/security/ctf-3.png",
+                lastUpdated: "2024.11.30",
+              },
+            ],
+            features: [
+              "AI 프롬프트 인젝션, 권한부여, API 체이닝, Jailbreaking 활용",
+              "리버싱, 암호학, 웹 해킹, AI 해킹 총 4분야",
+              "CTFd, Flask, 포트포워딩을 통해 구성된 100% 웹 환경",
+              "SQlight를 활용한 실제 DB 인젝션 문제 출제"
+            ],
+            gallery: [
+              "/security/ctf-4.png",
+              "/security/ctf-5.png",
+            ],
+          },
+          {
             id: "medical-device-security",
             title: "의료기기 보안 취약점 분석",
             period: "2024.10",
@@ -338,71 +403,7 @@ export const security = {
             ],
             gallery: ["/security/hash-2.png", "/security/hash-3.png"],
           },
-          {
-            id: "ai ctf",
-            title: "융보공 AI CTF 개최",
-            period: "2024.11",
-            description:
-              "CTFd 플랫폼과, AI를 사용하여 동아리 내에서 CTF & PIZZA라는 이름의 CTF를 개최했습니다.",
-            role: "CTF 출제위원 & 총괄",
-            contribution: 50,
-            mainTech: [
-              "AI CTF 문제",
-              "AI 보안",
-              "웹 호스팅",
-              "CTFd 구축",
-              "CTF 개최",
-            ],
-            thumbnail: "/security/ctf-1.png",
-            achievements: [
-              "CTF 참여자 만족도 90% 달성",
-              "학과 최초 AI 보안 문제 출제",
-              "초보자도 도전할 수 있는 PIZZA & LEARN 방식",
-              "5문제 이상 웹 환경 호스팅, SQL 인젝션 문제 출제",
-              "저예산 CTF 개최"
-            ],
-            teamSize: "4명",
-            duration: "3주",
-            documentation: [
-              {
-                type: "code",
-                title: "CTF 출제 문제",
-                description:
-                  "CTF 개최 때 사용했던 문제들입니다.",
-                link: "https://github.com/YYJ-SH/cftw",
-                thumbnail: "/security/ctf-2.png",
-                lastUpdated: "2024.11.30",
-              },
-              {
-                type: "PDF",
-                title: "CTF 주의사항",
-                description:
-                  "CTF 개최 때 사용했던 PDF 자료입니다",
-                link: "https://github.com/yourusername/code-analysis",
-                thumbnail: "/security/ctf-1.png",
-                lastUpdated: "2024.11.30",
-              },
-              {
-                type: "PDF",
-                title: "CTF 라이트업",
-                description:
-                  "AI CTF 라이트업입니다. ",
-                link: "https://creamerburger.tistory.com/59",
-                thumbnail: "/security/ctf-3.png",
-                lastUpdated: "2024.11.30",
-              },
-            ],
-            features: [
-              "AI 프롬프트 인젝션, 권한부여, API 체이닝, Jailbreaking 활용",
-              "리버싱, 암호학, 웹 해킹, AI 해킹 총 4분야",
-              "CTFd, Flask, 포트포워딩을 통해 구성된 100% 웹 환경",
-              "SQlight를 활용한 실제 DB 인젝션 문제 출제"
-            ],
-            gallery: [
-              "/security/ctf-4.png",
-              "/security/ctf-5.png",
-            ],
-          },
+         
         ],
       },
     },
@@ -783,7 +784,7 @@ export const security = {
   title: "CTF Precautions",
   description:
   "This is the PDF data used during the CTF",
-  link: "https://github.com/yourusername/code-analysis",
+  link: "/security/ctf.pdf",
   thumbnail: "/security/ctf-1.png",
   lastUpdated: "2024.11.30",
   },
