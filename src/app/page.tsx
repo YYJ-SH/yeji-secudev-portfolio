@@ -49,8 +49,9 @@ export default function Home() {
         <div className="text-center z-10 container mx-auto px-6">
           <h1 className="text-6xl md:text-8xl font-black mb-8 leading-none">
             <span className="block transform -rotate-2">{hero.greeting}</span>
+             <span className="block transform -rotate-1 text-lime-400">{hero.role}</span>
             <span className="block transform rotate-1 text-orange-500">{hero.name}</span>
-            <span className="block transform -rotate-1 text-lime-400">{hero.role}</span>
+           
           </h1>
           <p className="text-xl md:text-2xl font-bold mb-12 transform rotate-1 bg-lime-400 text-black p-4 inline-block max-w-2xl">
             {hero.description}
