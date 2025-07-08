@@ -14,72 +14,66 @@ interface Article {
 }
 
 export const BlogArticleCard = ({ article }: { article: Article }) => {
-  const platformIcons: { [key in Article['platform']]: typeof BookOpen } = {
-    medium: BookOpen,
-    tistory: BookOpen,
-    github: BookOpen
+  const platformColors: { [key: string]: string } = {
+    medium: 'bg-orange-500',
+    tistory: 'bg-lime-400',
+    github: 'bg-pink-500'
   };
 
-  const platformColors: { [key in Article['platform']]: string } = {
-    medium: 'from-slate-50 to-gray-50',
-    tistory: 'from-orange-50 to-rose-50',
-    github: 'from-purple-50 to-cyan-50'
-  };
-
-  const PlatformIcon = platformIcons[article.platform as keyof typeof platformIcons];
+  const platformColor = platformColors[article.platform] || 'bg-orange-500';
 
   return (
     <div className="relative group">
-      <Card className="relative min-h-[510px] border-2 border-purple-300/50 bg-gradient-to-b from-gray-50 to-white/80 
-                     backdrop-blur-sm overflow-hidden shadow-[0_0_15px_rgba(147,51,234,0.1)]
-                     hover:shadow-[0_0_20px_rgba(147,51,234,0.2)] transition-all">
+      {/* Brutalist Shadow */}
+      <div className={`absolute inset-0 ${platformColor} transform rotate-2 group-hover:rotate-0 transition-transform duration-300`} />
+      
+      <div className="relative bg-black border-4 border-white min-h-[510px] transform group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-300">
         {/* Thumbnail if exists */}
         {article.thumbnail && (
-          <div className="relative h-48 overflow-hidden">
+          <div className="relative h-48 overflow-hidden border-b-4 border-white">
             <img 
               src={article.thumbnail} 
               alt={article.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            <div className="absolute top-4 right-4 w-8 h-8 bg-lime-400 transform rotate-45 border-2 border-black" />
           </div>
         )}
 
         <div className="p-6">
           {/* Platform Badge & Date */}
           <div className="flex items-center justify-between mb-4">
-            <Badge 
-              className={`bg-gradient-to-r ${platformColors[article.platform]} 
-                       text-gray-700 border-gray-200 capitalize flex items-center gap-1`}
-            >
-              <PlatformIcon className="w-3 h-3" />
+            <div className={`${platformColor} text-black px-3 py-1 font-black text-sm border-2 border-black transform hover:scale-105 transition-transform uppercase flex items-center gap-2`}>
+              <BookOpen className="w-3 h-3" />
               {article.platform}
-            </Badge>
-            <div className="flex items-center gap-1 text-sm text-gray-500">
+            </div>
+            <div className="flex items-center gap-2 text-lime-400 font-bold">
               <Calendar className="w-4 h-4" />
               {article.date}
             </div>
           </div>
 
           {/* Title & Description */}
-          <div className="space-y-2 mb-4">
-            <h3 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-cyan-600 
-                         text-transparent bg-clip-text group-hover:from-cyan-600 group-hover:to-purple-600 
-                         transition-all duration-300">
+          <div className="space-y-4 mb-6">
+            <h3 className="text-xl font-black text-white transform hover:rotate-1 transition-transform leading-tight">
               {article.title}
             </h3>
-            <p className="text-gray-600 line-clamp-2">
-              {article.description}
-            </p>
+            <div className="bg-white text-black p-3 transform -rotate-1 border-2 border-lime-400">
+              <p className="font-bold text-sm line-clamp-2">
+                {article.description}
+              </p>
+            </div>
           </div>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            {article.tags.map((tag) => (
+          <div className="flex flex-wrap gap-2 mb-6">
+            {article.tags.map((tag, index) => (
               <span 
                 key={tag}
-                className="px-2 py-1 text-xs rounded-full bg-gradient-to-r from-purple-50 to-cyan-50 
-                         text-gray-600 border border-purple-100"
+                className={`px-2 py-1 font-bold text-xs border-2 border-black transform hover:scale-105 transition-transform
+                  ${index % 3 === 0 ? 'bg-orange-500 text-white' : 
+                    index % 3 === 1 ? 'bg-lime-400 text-black' : 'bg-pink-500 text-white'}`}
               >
                 {tag}
               </span>
@@ -91,14 +85,15 @@ export const BlogArticleCard = ({ article }: { article: Article }) => {
             href={article.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm text-purple-600 hover:text-purple-700
-                     group-hover:gap-2 transition-all"
+            className="inline-flex items-center gap-2 bg-pink-500 text-white px-4 py-2 font-black text-sm hover:scale-105 transition-transform border-2 border-white"
           >
-            Read More
-            <ArrowUpRight className="w-4 h-4" />
+            READ MORE
+            <div className="w-6 h-6 bg-white text-pink-500 flex items-center justify-center transform rotate-45">
+              <ArrowUpRight className="w-3 h-3 transform -rotate-45" />
+            </div>
           </a>
         </div>
-      </Card>
+      </div>
     </div>
   );
 };

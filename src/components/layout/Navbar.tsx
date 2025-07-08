@@ -17,52 +17,38 @@ export const Navbar = () => {
   const logoText = navigation[language].logo;
 
   return (
-    <nav className="fixed top-0 w-full z-50 border-b border-purple-200/30 backdrop-blur-md bg-white/70">
+    <nav className="fixed top-0 w-full z-50 bg-black border-b-4 border-orange-500">
       <div className="container mx-auto px-6">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link 
             href="/" 
             className="relative group flex items-center gap-2"
           >
-            {/* 아이콘 추가 */}
-            <div className="w-8 h-8 bg-gradient-to-r from-cyan-600 to-purple-600 
-                          rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold">Y</span>
+            <div className="text-2xl md:text-3xl font-black transform -rotate-2 text-white hover:text-orange-500 transition-colors">
+              YEJI.DEV
             </div>
-            <div className="text-xl font-bold bg-gradient-to-r from-cyan-600 to-purple-600 
-                          text-transparent bg-clip-text">
-              {logoText}
-            </div>
-            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r 
-                          from-cyan-600 to-purple-600 group-hover:w-full 
-                          transition-all duration-300" />
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm tracking-wider text-gray-600 hover:text-purple-600 
-                         transition-colors relative group flex items-center gap-2"
+                className="font-black text-lg text-white hover:text-orange-500 transition-colors transform hover:scale-110"
+                style={{ transform: `rotate(${index % 2 === 0 ? '1deg' : '-1deg'})` }}
               >
-                {item.icon && <item.icon className="w-4 h-4" />}
-                {item.label}
-                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 
-                              group-hover:w-full transition-all duration-300" />
+                {item.label.toUpperCase()}
               </Link>
             ))}
             
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-1 text-sm text-gray-600 hover:text-purple-600 
-                       transition-colors group"
+              className="w-12 h-12 bg-lime-400 text-black flex items-center justify-center transform rotate-45 hover:rotate-0 transition-transform font-black"
             >
-              <Globe className="w-4 h-4 group-hover:rotate-180 transition-transform duration-500" />
-              <span>{language.toUpperCase()}</span>
+              <span className="transform -rotate-45">{language.toUpperCase()}</span>
             </button>
           </div>
 
@@ -70,18 +56,19 @@ export const Navbar = () => {
           <div className="md:hidden flex items-center gap-4">
             <button
               onClick={toggleLanguage}
-              className="text-gray-600"
+              className="w-10 h-10 bg-lime-400 text-black flex items-center justify-center transform rotate-45 font-bold"
             >
-              <Globe className="w-5 h-5" />
+              <span className="transform -rotate-45 text-sm">{language.toUpperCase()}</span>
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
+              className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center transform hover:scale-110 transition-transform"
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6 text-gray-600" />
+                <X className="w-6 h-6" />
               ) : (
-                <Menu className="w-6 h-6 text-gray-600" />
+                <Menu className="w-6 h-6" />
               )}
             </button>
           </div>
@@ -89,17 +76,17 @@ export const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4">
+          <div className="md:hidden py-4 bg-black">
             <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm tracking-wider text-gray-600 hover:text-purple-600 
-                           transition-colors px-2 py-1"
+                  className="font-black text-lg text-white hover:text-orange-500 transition-colors px-2 py-1 transform"
+                  style={{ transform: `rotate(${index % 2 === 0 ? '1deg' : '-1deg'})` }}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item.label}
+                  {item.label.toUpperCase()}
                 </Link>
               ))}
             </div>

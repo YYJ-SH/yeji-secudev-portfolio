@@ -16,54 +16,48 @@ interface EducationProps {
 export const EducationCard = ({ education }: EducationProps) => {
   return (
     <div className="relative group">
-      {/* Scanline animation */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.03)_50%,rgba(0,0,0,0.03)_50%)] bg-[length:100%_4px]" />
-      </div>
-
-      <Card className="relative border-2 border-purple-300/50 bg-gradient-to-b from-gray-50 to-white/80 
-                     backdrop-blur-sm overflow-hidden shadow-[0_0_15px_rgba(147,51,234,0.1)]">
-        {/* Glowing corners */}
-        <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-purple-400" />
-        <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-purple-400" />
-        <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-purple-400" />
-        <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-purple-400" />
-
-        <div className="p-6 space-y-4">
+      {/* Brutalist Shadow */}
+      <div className="absolute inset-0 bg-lime-400 transform rotate-2 group-hover:rotate-0 transition-transform duration-300" />
+      
+      <div className="relative bg-black border-4 border-white p-6 transform group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-300">
+        <div className="space-y-4">
           <div className="flex items-start justify-between">
-            <div className="space-y-1">
-              <h3 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-cyan-600 
-                           text-transparent bg-clip-text">
+            <div className="space-y-2">
+              <h3 className="text-xl font-black text-white transform hover:rotate-1 transition-transform">
                 {education.school}
               </h3>
-              <p className="text-gray-600 font-medium">{education.major}</p>
+              <div className="bg-orange-500 text-black p-2 transform -rotate-1 border-2 border-black inline-block">
+                <p className="font-bold text-sm">{education.major}</p>
+              </div>
             </div>
-            <div className="flex gap-2 items-center px-3 py-1 bg-purple-100 text-purple-600 
-                          rounded-full text-sm">
-              <GraduationCap className="w-4 h-4" />
-              {education.degree}
+            <div className="w-12 h-12 bg-pink-500 flex items-center justify-center transform rotate-45 border-2 border-white">
+              <GraduationCap className="w-6 h-6 text-white transform -rotate-45" />
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2 text-gray-600">
-              <Calendar className="w-4 h-4 text-purple-500" />
-              <span>{education.period}</span>
+          <div className="space-y-3">
+            <div className="bg-white text-black p-3 transform rotate-1 border-2 border-lime-400">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-black" />
+                <span className="font-bold text-sm">{education.degree} • {education.period}</span>
+              </div>
             </div>
+            
             {education.gpa && (
-              <div className="flex items-center gap-2 text-gray-600">
-                <Star className="w-4 h-4 text-purple-500" />
-                <span>GPA: {education.gpa}</span>
+              <div className="bg-pink-500 text-white p-3 transform -rotate-1 border-2 border-white">
+                <div className="flex items-center gap-2">
+                  <Star className="w-4 h-4 text-white" />
+                  <span className="font-bold text-sm">GPA: {education.gpa}</span>
+                </div>
               </div>
             )}
           </div>
 
-          <div className="mt-4 inline-block px-3 py-1 bg-gradient-to-r from-purple-50 to-cyan-50 
-                        border border-purple-200 rounded-full text-sm text-purple-600">
-            {education.status}
+          <div className="bg-lime-400 text-black px-4 py-2 transform hover:scale-105 transition-transform border-2 border-black inline-block">
+            <span className="font-black text-sm uppercase">{education.status}</span>
           </div>
         </div>
-      </Card>
+      </div>
     </div>
   );
 };

@@ -20,55 +20,51 @@ export const AchievementCard = ({ achievement }: AchievementProps) => {
  };
 
  const typeColors = {
-   ctf: 'from-red-50 to-purple-50',
-   teaching: 'from-cyan-50 to-purple-50',
-   research: 'from-yellow-50 to-purple-50'
+   ctf: 'bg-orange-500',
+   teaching: 'bg-lime-400',
+   research: 'bg-pink-500'
  };
 
  const Icon = typeIcons[achievement.type];
 
  return (
    <div className="relative group">
-     <Card className="relative border-2 border-purple-300/50 bg-gradient-to-b from-gray-50 to-white/80 
-                    backdrop-blur-sm overflow-hidden shadow-[0_0_15px_rgba(147,51,234,0.1)]
-                    hover:shadow-[0_0_20px_rgba(147,51,234,0.2)] transition-shadow">
-       {/* Glowing corners */}
-       <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-purple-400" />
-       <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-purple-400" />
-       <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-purple-400" />
-       <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-purple-400" />
-
-       <div className="p-6">
-         <div className="flex items-start gap-4">
-           <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${typeColors[achievement.type]}
-                         flex items-center justify-center`}>
-             <Icon className="w-6 h-6 text-purple-600" />
-           </div>
-           <div>
-             <div className="flex items-center gap-2 mb-2">
-               <Badge 
-                 variant="outline" 
-                 className={`bg-gradient-to-r ${typeColors[achievement.type]} 
-                          text-purple-600 border-purple-200 capitalize`}
-               >
-                 {achievement.type}
-               </Badge>
-               <div className="flex items-center gap-1 text-sm text-gray-500">
-                 <Calendar className="w-4 h-4" />
-                 {achievement.date}
-               </div>
+     {/* Brutalist Shadow */}
+     <div className={`absolute inset-0 ${typeColors[achievement.type]} 
+       transform rotate-2 group-hover:rotate-0 transition-transform duration-300`} />
+     
+     <div className="relative bg-black border-4 border-white p-6 transform group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-300">
+       <div className="flex items-start gap-4">
+         {/* Brutalist Icon Container */}
+         <div className={`w-12 h-12 ${typeColors[achievement.type]} flex items-center justify-center 
+           transform rotate-45 border-2 border-black`}>
+           <Icon className="w-6 h-6 text-black transform -rotate-45" />
+         </div>
+         
+         <div className="flex-1">
+           <div className="flex items-center gap-3 mb-3">
+             <span className={`px-3 py-1 ${typeColors[achievement.type]} text-black font-black text-sm 
+               border-2 border-black transform hover:scale-105 transition-transform uppercase`}>
+               {achievement.type}
+             </span>
+             <div className="flex items-center gap-1 text-lime-400 font-bold">
+               <Calendar className="w-4 h-4" />
+               {achievement.date}
              </div>
-             <h3 className="text-lg font-bold bg-gradient-to-r from-purple-600 to-cyan-600 
-                          text-transparent bg-clip-text mb-2">
-               {achievement.title}
-             </h3>
-             <p className="text-gray-600 text-sm">
+           </div>
+           
+           <h3 className="text-xl font-black text-white mb-3 transform hover:rotate-1 transition-transform">
+             {achievement.title}
+           </h3>
+           
+           <div className="bg-white text-black p-3 transform rotate-1 border-2 border-lime-400">
+             <p className="font-bold text-sm">
                {achievement.description}
              </p>
            </div>
          </div>
        </div>
-     </Card>
+     </div>
    </div>
  );
 };

@@ -6,8 +6,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { LanguageProvider } from "@/contexts/language-context";
 
 export const metadata: Metadata = {
-  title: "Yeji Yu - Frontend Developer",
-  description: "Frontend developer portfolio with security background",
+  title: "Yeji Yu - Security Developer",
+  description: "Brutalist portfolio showcasing security and development projects",
 };
 
 export default function RootLayout({
@@ -20,13 +20,16 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <LanguageProvider>
-          <div className="min-h-screen">
-            {/* Background Effects */}
-            <div className="fixed inset-0 bg-[linear-gradient(rgba(147,51,234,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(147,51,234,0.05)_1px,transparent_1px)] bg-[length:30px_30px]" />
-            <div className="fixed inset-0 overflow-hidden">
-              <div className="absolute -top-40 -left-40 w-96 h-96 bg-purple-400/20 rounded-full blur-[100px]" />
-              <div className="absolute top-1/2 -right-40 w-96 h-96 bg-cyan-400/20 rounded-full blur-[100px]" />
-              <div className="absolute -bottom-40 left-1/2 w-96 h-96 bg-pink-400/20 rounded-full blur-[100px]" />
+          <div className="min-h-screen bg-black">
+            {/* Brutalist Grid Background */}
+            <div className="fixed inset-0 brutalist-grid opacity-10" />
+            
+            {/* Floating Geometric Shapes */}
+            <div className="fixed inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-20 left-20 w-8 h-8 bg-orange-500 transform rotate-45 animate-pulse" />
+              <div className="absolute top-1/3 right-20 w-6 h-6 bg-lime-400 rounded-full animate-bounce" />
+              <div className="absolute bottom-1/3 left-20 w-0 h-0 border-l-[15px] border-r-[15px] border-b-[25px] border-l-transparent border-r-transparent border-b-pink-500 brutalist-shake" />
+              <div className="absolute bottom-20 right-1/3 w-10 h-10 bg-orange-500 transform -rotate-12 brutalist-pulse" />
             </div>
 
             {/* Navbar */}

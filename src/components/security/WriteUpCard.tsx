@@ -13,6 +13,12 @@ interface Writeup {
 }
 
 export const WriteupCard = ({ writeup }: { writeup: Writeup }) => {
+  const difficultyColors = {
+    'Easy': 'bg-lime-400',
+    'Medium': 'bg-orange-500', 
+    'Hard': 'bg-pink-500'
+  };
+
   return (
     <a 
       href={writeup.writeupUrl}
@@ -20,49 +26,55 @@ export const WriteupCard = ({ writeup }: { writeup: Writeup }) => {
       rel="noopener noreferrer"
       className="block group"
     >
-      <Card className="relative border-2 border-purple-300/50 bg-gradient-to-b from-gray-50 to-white/80 
-                     backdrop-blur-sm overflow-hidden shadow-[0_0_15px_rgba(147,51,234,0.1)]
-                     hover:shadow-[0_0_20px_rgba(147,51,234,0.2)] transition-all">
-        <div className="p-6">
-          <div className="flex items-start justify-between">
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <FileText className="w-5 h-5 text-purple-500" />
-                <h3 className="text-lg font-bold text-gray-900">{writeup.title}</h3>
+      <div className="relative">
+        {/* Brutalist Shadow */}
+        <div className="absolute inset-0 bg-orange-500 transform rotate-2 group-hover:rotate-0 transition-transform duration-300" />
+        
+        <div className="relative bg-black border-4 border-white p-6 transform group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-300">
+          <div className="flex items-start justify-between mb-4">
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-lime-400 flex items-center justify-center transform rotate-45 border-2 border-black">
+                  <FileText className="w-4 h-4 text-black transform -rotate-45" />
+                </div>
+                <h3 className="text-lg font-black text-white">{writeup.title}</h3>
               </div>
-              <div className="flex items-center gap-2 text-sm text-gray-500">
-                <span>{writeup.platform}</span>
-                <span>•</span>
-                <span className={`
-                  ${writeup.difficulty === 'Easy' ? 'text-green-600' :
-                    writeup.difficulty === 'Medium' ? 'text-yellow-600' :
-                    'text-red-600'}
-                `}>
+              
+              <div className="flex items-center gap-3">
+                <span className="bg-white text-black px-3 py-1 font-bold text-sm border-2 border-black">
+                  {writeup.platform}
+                </span>
+                <span className={`px-3 py-1 font-black text-sm border-2 border-black text-black transform hover:scale-105 transition-transform
+                  ${difficultyColors[writeup.difficulty as keyof typeof difficultyColors] || 'bg-gray-500'}`}>
                   {writeup.difficulty}
                 </span>
               </div>
             </div>
-            <ExternalLink className="w-5 h-5 text-purple-500 
-                                 group-hover:rotate-45 transition-transform" />
+            
+            <div className="w-10 h-10 bg-pink-500 flex items-center justify-center transform -rotate-12 group-hover:rotate-0 transition-transform border-2 border-white">
+              <ExternalLink className="w-5 h-5 text-white transform rotate-12" />
+            </div>
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-2">
-            {writeup.tags.map((tag) => (
-              <Badge 
+          <div className="mb-4 flex flex-wrap gap-2">
+            {writeup.tags.map((tag, index) => (
+              <span 
                 key={tag}
-                className="bg-purple-50 text-purple-600 border-purple-200"
+                className={`px-2 py-1 font-bold text-xs border-2 border-black transform hover:scale-105 transition-transform
+                  ${index % 3 === 0 ? 'bg-orange-500 text-white' : 
+                    index % 3 === 1 ? 'bg-lime-400 text-black' : 'bg-pink-500 text-white'}`}
               >
                 {tag}
-              </Badge>
+              </span>
             ))}
           </div>
 
-          <div className="mt-4 flex items-center gap-2 text-sm text-gray-500">
+          <div className="flex items-center gap-2 text-lime-400 font-bold">
             <CalendarDays className="w-4 h-4" />
             {writeup.date}
           </div>
         </div>
-      </Card>
+      </div>
     </a>
   );
 };

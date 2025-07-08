@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Card } from "@/components/ui/card";
-import { Award, Calendar, ExternalLink, X } from 'lucide-react';
+import { Award, Calendar, ExternalLink, X, Eye } from 'lucide-react';
 import { useLanguage } from "@/contexts/language-context";
+import { ImageModal } from "@/components/common/ImageModal";
 
 interface CertificateProps {
   certificate: {
@@ -12,9 +12,11 @@ interface CertificateProps {
     type: string;
     image?: string;
   };
+  colorIndex?: number;
+  sectionType?: string;
 }
 
-export const CertificateCard = ({ certificate }: CertificateProps) => {
+export const CertificateCard = ({ certificate, colorIndex = 0, sectionType = 'certification' }: CertificateProps) => {
   const [isImageOpen, setIsImageOpen] = useState(false);
   const { language } = useLanguage();
 
@@ -22,106 +24,115 @@ export const CertificateCard = ({ certificate }: CertificateProps) => {
     setIsImageOpen(!isImageOpen);
   };
 
+  // 색상 배열
+  const colors = ['bg-orange-500', 'bg-lime-400', 'bg-pink-500'];
+  const cardColor = colors[colorIndex % 3];
+
+  // 타입별 기본 색상
+  const getTypeColor = () => {
+    switch (sectionType) {
+      case 'certification':
+        return 'bg-orange-500';
+      case 'license':
+        return 'bg-lime-400';
+      case 'award':
+        return 'bg-pink-500';
+      default:
+        return 'bg-orange-500';
+    }
+  };
+
   return (
     <>
       <div className="relative group">
-        <Card className="relative border-2 min-h-[404px] border-purple-300/50 bg-gradient-to-b from-gray-50 to-white/80 
-                        backdrop-blur-sm overflow-hidden shadow-[0_0_15px_rgba(147,51,234,0.1)]">
-          {/* Glowing corners */}
-          <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-purple-400" />
-          <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-purple-400" />
-          <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-purple-400" />
-          <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-purple-400" />
-
+        {/* Brutalist Shadow */}
+        <div className={`absolute inset-0 ${cardColor} transform ${colorIndex % 2 === 0 ? 'rotate-2' : '-rotate-2'} 
+          group-hover:rotate-0 transition-transform duration-300`} />
+        
+        <div className="relative bg-black border-4 border-white min-h-[400px] transform group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-300">
+          {/* Certificate Image */}
           {certificate.image && (
             <div 
-              className="relative h-48 overflow-hidden cursor-pointer group" 
+              className="relative h-48 overflow-hidden cursor-pointer border-b-4 border-white group-hover:scale-105 transition-transform duration-300" 
               onClick={toggleImage}
             >
               <img 
                 src={certificate.image} 
                 alt={certificate.name}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               
-              {/* Zoom Hint */}
-              <div className="absolute inset-0 bg-black/0 hover:bg-black/20 
-                            flex items-center justify-center opacity-0 group-hover:opacity-100 
-                            transition-all duration-300">
-                <span className="text-white bg-black/50 px-4 py-2 rounded-lg">
-                  {language === 'ko' ? '크게 보기' : 'View Larger'}
-                </span>
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/0 hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="bg-orange-500 text-white px-4 py-2 font-black border-2 border-white flex items-center gap-2">
+                  <Eye className="w-4 h-4" />
+                  {language === 'ko' ? '자세히 보기' : 'VIEW CERT'}
+                </div>
               </div>
+
+              {/* Decorative Corner */}
+              <div className="absolute top-4 right-4 w-8 h-8 bg-lime-400 transform rotate-45 border-2 border-black" />
             </div>
           )}
 
+          {/* Content */}
           <div className="p-6 space-y-4">
+            {/* Header */}
             <div className="flex items-start justify-between">
-              <div className="space-y-1">
-                <h3 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-cyan-600 
-                              text-transparent bg-clip-text">
+              <div className="flex-1">
+                <h3 className="text-lg font-black text-white mb-2 leading-tight">
                   {certificate.name}
                 </h3>
-                <p className="text-gray-600 font-medium">{certificate.issuer}</p>
+                <div className="bg-white text-black p-2 transform -rotate-1 border-2 border-lime-400 inline-block">
+                  <p className="font-bold text-sm">{certificate.issuer}</p>
+                </div>
               </div>
-              <Award className="w-6 h-6 text-purple-500" />
+              <div className={`w-12 h-12 ${getTypeColor()} flex items-center justify-center transform rotate-45 border-2 border-white`}>
+                <Award className="w-6 h-6 text-black transform -rotate-45" />
+              </div>
             </div>
 
-            <div className="flex items-center gap-2 text-gray-600">
-              <Calendar className="w-4 h-4 text-purple-500" />
-              <span>{certificate.date}</span>
+            {/* Date Info */}
+            <div className="space-y-3">
+              <div className="bg-pink-500 text-white p-3 border-2 border-white transform rotate-1">
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  <span className="font-bold text-sm">
+                    {language === 'ko' ? '취득일: ' : 'Date: '}{certificate.date}
+                  </span>
+                </div>
+              </div>
+
               {certificate.expiry && (
-                <span className="text-sm text-gray-500">
-                  {language === 'ko' ? `(유효기간: ${certificate.expiry})` : `(Valid until: ${certificate.expiry})`}
-                </span>
+                <div className="bg-orange-500 text-white p-3 border-2 border-white transform -rotate-1">
+                  <span className="font-bold text-sm">
+                    {language === 'ko' ? `유효기간: ${certificate.expiry}` : `Valid until: ${certificate.expiry}`}
+                  </span>
+                </div>
               )}
             </div>
 
+            {/* View Button */}
             {certificate.image && (
               <button 
-                className="flex items-center gap-2 text-sm text-purple-600 hover:text-purple-700"
+                className="w-full bg-lime-400 text-black p-3 font-black hover:scale-105 transition-transform border-2 border-black flex items-center justify-center gap-2"
                 onClick={toggleImage}
               >
-                {/* <ExternalLink className="w-4 h-4" />
-                {language === 'ko' ? '인증서 보기' : 'View Certificate'} */}
+                <ExternalLink className="w-4 h-4" />
+                {language === 'ko' ? '인증서 보기' : 'VIEW CERTIFICATE'}
               </button>
             )}
           </div>
-        </Card>
+        </div>
       </div>
 
-      {/* 확대된 이미지 모달 */}
-      {isImageOpen && certificate.image && (
-        <div 
-          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-          onClick={toggleImage}
-        >
-          <div 
-            className="relative max-w-4xl w-full bg-white rounded-lg overflow-hidden shadow-xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative">
-              <img 
-                src={certificate.image} 
-                alt={certificate.name}
-                className="w-full object-contain max-h-[80vh]"
-              />
-              <button 
-                className="absolute top-4 right-4 bg-black/50 p-2 rounded-full text-white hover:bg-black/70 transition-colors"
-                onClick={toggleImage}
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            <div className="p-4 bg-white">
-              <h3 className="text-xl font-bold">{certificate.name}</h3>
-              <p className="text-gray-600">{certificate.issuer}</p>
-              <p className="text-gray-500 text-sm mt-1">{certificate.date}</p>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Image Modal */}
+      <ImageModal
+        isOpen={isImageOpen}
+        imageUrl={certificate.image || ""}
+        alt={certificate.name}
+        onClose={() => setIsImageOpen(false)}
+      />
     </>
   );
 };
