@@ -51,7 +51,7 @@ import {
         },
        {
           title: "보안 & AI 연구",
-          description: `✅ AI CTF 기획 및 운영, AI 모델 보안 연구\n✅ MITRE ATT&CK 활용, 클라우드 보안 위협 분석\n✅ DevSecOps 연구`,
+          description: `✅ AI CTF 기획 및 운영, AI 모델 보안 연구\n✅ MITRE ATT&CK 활용, 클라우드 보안 위협 분석\n✅ 보안공학 학부연구생`,
           icon: Shield,
           href: "/security",
           gradient: "from-pink-500 to-purple-600",
