@@ -6,6 +6,7 @@ import {
     Code,
     Shield,
     Award,
+    NotebookPen
   } from "lucide-react";
   
   export const social = {
@@ -28,9 +29,9 @@ import {
           label: "LinkedIn 프로필",
         },
         {
-          icon: Mail,
-          href: "mailto:creamerburger@gmail.com",
-          label: "이메일 보내기",
+          icon: NotebookPen,
+          href: "https://creamerburger.tistory.com/",
+          label: "기술 블로그",
         },
       ],
       navCards: [

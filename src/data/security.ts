@@ -189,6 +189,51 @@ export const security = {
             gallery: ["/security/ctf-4.png", "/security/ctf-5.png"],
           },
           {
+            "id": "network-forensics-wireshark",
+            "title": "와이어샤크를 이용한 네트워크 패킷 분석 및 이미지 복원",
+            "period": "2024.09",
+            "description": "Wireshark를 사용하여 네트워크 패킷을 분석하고, 파일 시그니처에 대한 이해를 바탕으로 HTTP 스트림에서 이미지를 수동으로 추출하고 복원하는 과정을 실습한 디지털 포렌식 기초 프로젝트입니다.",
+            "role": "프로젝트 강사",
+            "contribution": 100,
+            "mainTech": ["Wireshark", "네트워크 포렌식", "파일 시그니처", "HxD"],
+            "thumbnail": "/security/wireshark-project.png",
+            "achievements": [
+              "Wireshark를 활용한 네트워크 패킷 캡처 및 분석",
+              "HTTP 스트림에서 Raw 데이터를 추출하는 방법 학습",
+              "파일 시그니처(JPEG)를 기반으로 이미지 수동 복원 실습",
+              "HxD Hex 에디터를 사용한 바이너리 데이터 분석"
+            ],
+            "teamSize": "1명",
+            "duration": "1주",
+            "documentation": [
+              {
+                "type": "PDF",
+                "title": "강의 발표 자료",
+                "description": "네트워크 패킷에서 이미지 복원하기 Wireshark 실습 강의 자료입니다.",
+                "link": "/security/wireshark.pdf",
+                "thumbnail": "/security/wireshark-slides.png",
+                "lastUpdated": "2024.09.15"
+              },
+              {
+                "type": "video",
+                "title": "강의 영상",
+                "description": "프로젝트 실습 전체 과정을 담은 강의 영상입니다.",
+                "link": "https://drive.google.com/file/d/1dHKI1wQXKVAClbo-nQREu3VISq1cXtom/view?usp=sharing",
+                "thumbnail": "/security/wireshark-video.png",
+                "lastUpdated": "2024.09.15"
+              }
+            ],
+            "features": [
+              "HTTP 패킷 필터링 및 스트림 추적",
+              "JPEG 파일의 SOI(FF D8) 및 EOI(FF D9) 시그니처 분석",
+              "HxD를 이용한 불필요한 헤더 데이터 제거 및 파일 저장"
+            ],
+            "gallery": [
+              "/security/wireshark-gallery-1.png",
+              "/security/wireshark-gallery-2.png"
+            ]
+          },
+          {
 
                         id: "MCP ctf",
             
@@ -807,6 +852,51 @@ export const security = {
               "Automated problem deployment using Docker",
             ],
             gallery: ["/security/ctf2-1.png", "/security/ctf2-2.png"],
+          },
+          {
+            "id": "network-forensics-wireshark",
+            "title": "Network Packet Analysis & Image Restoration using Wireshark",
+            "period": "2024.09",
+            "description": "A basic digital forensics project involving analyzing network packets with Wireshark and practicing manual extraction and restoration of images from HTTP streams based on an understanding of file signatures.",
+            "role": "Project Instructor",
+            "contribution": 100,
+            "mainTech": ["Wireshark", "Network Forensics", "File Signature", "HxD"],
+            "thumbnail": "/security/wireshark-project.png",
+            "achievements": [
+              "Captured and analyzed network packets using Wireshark",
+              "Learned how to extract Raw data from HTTP streams",
+              "Practiced manually restoring images based on file signatures (JPEG)",
+              "Analyzed binary data using the HxD Hex Editor"
+            ],
+            "teamSize": "1 person",
+            "duration": "1 week",
+            "documentation": [
+              {
+                "type": "PDF",
+                "title": "Lecture Slides",
+                "description": "Presentation slides for the Wireshark lab on restoring images from network packets.",
+                "link": "/security/wireshark.pdf",
+                "thumbnail": "/security/wireshark-slides.png",
+                "lastUpdated": "2024.09.15"
+              },
+              {
+                "type": "video",
+                "title": "Lecture Video",
+                "description": "A video recording of the entire project lab session.",
+                "link": "https://drive.google.com/file/d/1dHKI1wQXKVAClbo-nQREu3VISq1cXtom/view?usp=sharing",
+                "thumbnail": "/security/wireshark-video.png",
+                "lastUpdated": "2024.09.15"
+              }
+            ],
+            "features": [
+              "HTTP packet filtering and stream following",
+              "Analysis of JPEG file SOI (FF D8) and EOI (FF D9) signatures",
+              "Removing unnecessary header data and saving files using HxD"
+            ],
+            "gallery": [
+              "/security/wireshark-gallery-1.png",
+              "/security/wireshark-gallery-2.png"
+            ]
           },
           {
             id: "cve-rag",
