@@ -138,25 +138,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-black mb-8 transform rotate-1">
-            WANT TO <span className="text-orange-500">COLLABORATE?</span>
-          </h2>
-          <p className="text-xl md:text-2xl mb-12 bg-pink-500 text-white p-6 transform -rotate-1 inline-block">
-            Let's build something amazing together!
-          </p>
-          <div className="flex flex-col md:flex-row justify-center gap-8">
-            <button className="px-8 py-4 bg-orange-500 text-white font-black text-xl transform hover:scale-105 transition-transform border-4 border-white">
-              START A PROJECT
-            </button>
-            <button className="px-8 py-4 border-4 border-white text-white font-black text-xl transform hover:scale-105 transition-transform">
-              VIEW MORE WORK
-            </button>
-          </div>
-        </div>
-      </section>
+
     </main>
   );
 }

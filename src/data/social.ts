@@ -6,14 +6,15 @@ import {
     Code,
     Shield,
     Award,
+    NotebookPen
   } from "lucide-react";
   
   export const social = {
     ko: {
       hero: {
         greeting: "안녕하세요,",
-        role: "보안과 개발을 잇는 ",
-        name: "융합 엔지니어 유예지 입니다.",
+        role: "보안과 개발을 잇는 융합 엔지니어",
+        name: "유예지 입니다.",
         description: `보안과 개발을 융합하여 안전한 웹 서비스를 구축하는 개발자입니다.\n보안성과 사용자 경험을 동시에 고려한 솔루션을 연구하고 있습니다.`,
       },
       social: [
@@ -28,9 +29,9 @@ import {
           label: "LinkedIn 프로필",
         },
         {
-          icon: Mail,
-          href: "mailto:creamerburger@gmail.com",
-          label: "이메일 보내기",
+          icon: NotebookPen,
+          href: "https://creamerburger.tistory.com/",
+          label: "기술 블로그",
         },
       ],
       navCards: [
@@ -48,16 +49,16 @@ import {
           href: "/portfolio",
           gradient: "from-purple-400 to-pink-500",
         },
-        {
+       {
           title: "보안 & AI 연구",
-          description: `✅ AI CTF 기획 및 운영, AI 모델 보안 연구\n✅ MITRE ATT&CK 활용, 클라우드 보안 위협 분석\n✅ 컨테이너·서버리스 보안 연구`,
+          description: `✅ AI CTF 기획 및 운영, AI 모델 보안 연구\n✅ MITRE ATT&CK 활용, 클라우드 보안 위협 분석\n✅ DevSecOps 연구`,
           icon: Shield,
           href: "/security",
           gradient: "from-pink-500 to-purple-600",
         },
         {
           title: "자격증 & 수상",
-          description: `✅ Azure Security 인증 보유\n✅ ACK 2024 학부논문 수상\n✅ 창의융합보안소프트웨어 경진대회 대상 수상`,
+          description: `✅ Azure Security 인증 보유\n✅ ACK 2024 학부논문 수상\n✅ 제5회 정보보안 웹·앱 개발 아이디어 공모전 (최우수상) `,
           icon: Award,
           href: "/certifications",
           gradient: "from-cyan-400 to-purple-500",
