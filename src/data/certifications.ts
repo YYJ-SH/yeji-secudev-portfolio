@@ -47,6 +47,13 @@ export const certifications = {
             type: "certification",
             image: "/certificates/oamaster.png",
           },
+          {
+            name: "SQLD (SQL Developer)",
+            issuer: "한국데이터산업진흥원",
+            date: "2025.04",
+            type: "certification",
+            image: "/certificates/SQLD.png",
+          },
           
   
           // ✅ 교육 이수 (License)
@@ -73,6 +80,13 @@ export const certifications = {
           },
   
           // ✅ 수상 경력 (Awards)
+          {
+            name: "제5회 정보보안 웹·앱 개발 아이디어 공모전 (최우수상)",
+            issuer: "미래와 소프트웨어",
+            date: "2025.04",
+            type: "award",
+            image: "/certificates/mirae.png",
+          },
           {
             name: "융합보안창의소프트웨어 경진대회 (대상)",
             issuer: "성신여자대학교",
@@ -145,6 +159,13 @@ export const certifications = {
       type: "certification",
       image: "/certificates/oamaster.png",
       },
+      {
+        name: "SQLD (SQL Developer)",
+        issuer: "Korea Data Industry Promotion Agency",
+        date: "2025.04",
+        type: "certification",
+        image: "/certificates/SQLD.png",
+      },
       
       // ✅ Education Completion (License)
       {
@@ -170,6 +191,13 @@ export const certifications = {
       },
       
       // ✅ Awards
+      {
+        name: "5th Information Security Web/App Development Idea Contest (Grand Prize)",
+        issuer: "Future and Software",
+        date: "2025.04",
+        type: "award",
+        image: "/certificates/mirae.png",
+      },
       {
       name: "Convergence Security Creative Software Competition (Grand Prize)",
       issuer: "Sungshin Women's University",

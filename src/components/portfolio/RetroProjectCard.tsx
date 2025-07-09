@@ -209,7 +209,7 @@ const RetroProjectCard = ({ project }: RetroProjectCardProps) => {
                 <div className="relative group rounded-lg overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-b from-purple-100/20 to-cyan-100/20 pointer-events-none" />
                   <pre className="p-4 bg-gray-900 text-gray-100 rounded-lg overflow-x-auto">
-                    <code className="text-sm">{project.coreCode ? project.coreCode : "비공개 코드입니다"}</code>
+                    <code className="text-sm">{project.coreCode ? project.coreCode : " "}</code>
                   </pre>
                 </div>
               </TabsContent>

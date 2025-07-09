@@ -7,10 +7,10 @@ export const portfolio = {
         {
           id: "phishing-guard",
           title: "피싱지킴이: 시니어를 위한 ALL IN ONE 피싱 탐지 및 교육 플랫폼",
-          period: "2024.01 - 진행 중",
+          period: "2025.01 - 2025.04",
           description: "시니어들을 위한 이미지 & 데이터베이스 기반 피싱 사이트 탐지 및 교육 커뮤니티 입니다.",
           role: "프론트엔드 & 백 개발자 & 팀 리드",
-          contribution: 70,
+          contribution: 80,
           mainTech: ["React", "Next.js", "Python", "Django", "MySql", "AWS", "Docker"],
           thumbnail: "/projects/phishing-guard.png",
           achievements: [
@@ -23,7 +23,14 @@ export const portfolio = {
           duration: "진행 중",
           liveDemo: "phishingguard-front-pro.vercel.app",
           githubLink: "https://github.com/YYJ-SH/phishingguardFront",
-          documentation: [],
+          documentation: [{
+            type: "PDF",
+            title: "피싱지킴이 플랫폼 발표 문서",
+            description: "시니어들을 위한 이미지 & 데이터베이스 기반 피싱 사이트 탐지 및 교육 커뮤니티의 상세 기술 문서입니다.",
+             link: "https://www.canva.com/design/DAGfLwWSO18/0Dv8MFOxHE3mJZE77S_8yw/view?utm_content=DAGfLwWSO18&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf68d8e2747",
+            thumbnail: "/projects/phishing-tmb.png", // 실제 썸네일 이미지가 있다면 그 경로를
+            lastUpdated: "2025-04-18", // 문서가 마지막으로 수정된 날짜
+          }],
           coreCode: `# DatabaseChecker 클래스의 check_url 메서드 수정
 def check_url(self, url):
     try:
@@ -248,7 +255,7 @@ def check_url(self, url):
           liveDemo: "",
           githubLink: "",
           documentation: [],
-          coreCode: `비공개 코드입니다`,
+          coreCode: ` `,
           features: ["YOLO5 기반 차량 번호판 인식", "위변조 탐지 기능"],
           gallery: ["/projects/mj-1.png","/projects/mj-2.png","/projects/mj-3.png"],
         },
@@ -280,7 +287,7 @@ def check_url(self, url):
               lastUpdated: "2024-02-18", // 문서가 마지막으로 수정된 날짜
             },
           ],
-          coreCode: `// 비공개 코드입니다`,
+          coreCode: `//  `,
           features: ["IoT 기반 어항 모니터링", "AI 식물 질병 진단", "자동사료급여", "관련상품 스마트스토어", "전문가 매칭"],
           gallery: ["/projects/aqua-1.gif", "/projects/aqua-2.gif", "/projects/aqua-2.png","/projects/aqua-1.png"],
         },
@@ -334,7 +341,14 @@ def check_url(self, url):
     duration: "In progress",
     liveDemo: "phishingguard-front-pro.vercel.app",
     githubLink: "https://github.com/YYJ-SH/phishingguardFront",
-    documentation: [],
+    documentation: [{
+      type: "PDF",
+      title: "PhishingGuard Platform Announcement Document",
+      description: "Detailed technical documentation for the image & database-based phishing site detection and education community for seniors.",
+      link: "https://www.canva.com/design/DAGfLwWSO18/0Dv8MFOxHE3mJZE77S_8yw/view?utm_content=DAGfLwWSO18&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf68d8e2747",
+      thumbnail: "/projects/phishing-tmb.png",
+      lastUpdated: "2025-04-18",
+      }],
     coreCode: `# Modify the check_url method of the DatabaseChecker class
     def check_url(self, url):
     try:
